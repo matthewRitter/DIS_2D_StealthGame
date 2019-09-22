@@ -26,6 +26,7 @@ public class backAndForthPatrol : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        print(direction);
         rb2d = GetComponent<Rigidbody2D>();
 
 
@@ -50,37 +51,58 @@ public class backAndForthPatrol : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        RaycastHit2D wall = Physics2D.Raycast(transform.position, directionFacing, wallDetectionDistance);
+        Vector2 origin = transform.position;
+
+        if (direction == 0)
+        {
+            origin.x -= 1;
+        }
+        else if (direction == 1)
+        {
+            origin.y += 1;
+        }
+        else if (direction == 2)
+        {
+            origin.x += 1;
+        }
+        else if (direction == 3)
+        {
+            origin.y -= 1;
+        }
+
+        RaycastHit2D wall = Physics2D.Raycast(origin, directionFacing, wallDetectionDistance);
 
         if (wall.collider != null)
         {
-            if (wall.collider.tag == "wall")
-            {
-                changeDirection();
-            }
+            print(wall.collider.tag);
+        }
+
+
+        if ((wall.collider != null) && (wall.collider.tag == "wall"))
+        {
+            changeDirection();
         }
         else
         {
+            Vector2 movement = new Vector2(0,0);
             if (direction == 0)
             {
-                Vector2 movement = new Vector2(-patrolSpeed, 0);
-                gameObject.transform.position = movement;
+                movement = new Vector2(-patrolSpeed, 0);
+                //print("Going Left");
             }
             else if (direction == 1)
             {
-                Vector2 movement = new Vector2(0, patrolSpeed);
-                gameObject.transform.position = movement;
+                movement = new Vector2(0, patrolSpeed);
             }
             else if (direction == 2)
             {
-                Vector2 movement = new Vector2(patrolSpeed, 0);
-                gameObject.transform.position = movement;
+                movement = new Vector2(patrolSpeed, 0);
             }
             else if (direction == 3)
             {
-                Vector2 movement = new Vector2(0, -patrolSpeed);
-                gameObject.transform.position = movement;
+                movement = new Vector2(0, -patrolSpeed);
             }
+            rb2d.velocity = movement;
         }
 
     }
