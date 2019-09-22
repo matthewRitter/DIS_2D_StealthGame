@@ -6,6 +6,7 @@ TagManager:
   tags:
   - wall
   - Wall
+  - EnemyBoi
   layers:
   - Default
   - TransparentFX

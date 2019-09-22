@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6117013502201635064}
   m_Layer: 0
   m_Name: blockEnemy
-  m_TagString: Untagged
+  m_TagString: EnemyBoi
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
