@@ -8,21 +8,22 @@ public class PlayerController : MonoBehaviour
 {
     public float playerSpeed;
     private Rigidbody2D protagonist;
+    public GameObject player;
     private bool facingRight = true;
     public AudioSource sound;
 
     // Start is called before the first frame update
     void Start()
     {
-        rb = gameObject.GetComponent<Rigidbody2D>();
+        protagonist = gameObject.GetComponent<Rigidbody2D>();
         sound = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical")).normalized;
-        protagonist.Translate(movement * playerSpeed * Time.deltaTime);
+        Vector2 movement = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        protagonist.velocity = movement * playerSpeed;
 
     }
 
