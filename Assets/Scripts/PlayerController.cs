@@ -11,6 +11,7 @@ public class PlayerController : MonoBehaviour
     public GameObject player;
     private bool facingRight = true;
     public AudioSource sound;
+    public Animator animator;
 
     // Start is called before the first frame update
     void Start()
@@ -22,8 +23,20 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        Vector2 movement = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+
+        Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0.0f);
+
+        Debug.Log("x is" + movement.x);
+        Debug.Log("y is" + movement.y);
+        Debug.Log("magnitude is" + movement.magnitude);
+
+
+        animator.SetFloat("Horizontal", movement.x);
+        animator.SetFloat("Vertical", movement.y);
+        animator.SetFloat("Magnitude", movement.magnitude);
+
         protagonist.velocity = movement * playerSpeed;
+        
 
     }
 

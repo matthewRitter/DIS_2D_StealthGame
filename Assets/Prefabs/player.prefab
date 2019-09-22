@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 8662968551763908592}
   m_Layer: 0
   m_Name: player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -99,6 +99,7 @@ MonoBehaviour:
   playerSpeed: 20
   player: {fileID: 8662968551763908593}
   sound: {fileID: 0}
+  animator: {fileID: 0}
 --- !u!70 &8662968551763908599
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
