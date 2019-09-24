@@ -50,15 +50,8 @@ public class PlayerController : MonoBehaviour
 
         Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0.0f);
 
-        Debug.Log("x is" + movement.x);
-        Debug.Log("y is" + movement.y);
-        Debug.Log("magnitude is" + movement.magnitude);
 
         knife.transform.localPosition = new Vector3(knifeHori, knifeVert, 0.0f);
-
-        animator.SetFloat("Horizontal", movement.x);
-        animator.SetFloat("Vertical", movement.y);
-        animator.SetFloat("Magnitude", movement.magnitude);
 
         //transform.position = transform.position + movement * Time.deltaTime * playerSpeed;
         protagonist.velocity = movement * playerSpeed;
