@@ -14,6 +14,9 @@ public class PlayerController : MonoBehaviour
     public Animator animator;
     public GameObject knife;
 
+    private bool playerMoving;
+    private Vector2 lastMove;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,6 +27,8 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        playerMoving = false;
+
         float knifeHori = Input.GetAxis("Horizontal");
         float knifeVert = Input.GetAxis("Vertical");
         
@@ -50,12 +55,19 @@ public class PlayerController : MonoBehaviour
 
         Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0.0f);
 
+        
+
+        if(movement.magnitude > 0.0f || movement.magnitude < 0.0f)
+        {
+            playerMoving = true;
+        }
+
+        knife.transform.localPosition = new Vector3(knifeHori, knifeVert, 0.0f);
+
         animator.SetFloat("Horizontal", movement.x);
         animator.SetFloat("Vertical", movement.y);
         animator.SetFloat("Magnitude", movement.magnitude);
-
-
-        knife.transform.localPosition = new Vector3(knifeHori, knifeVert, 0.0f);
+        animator.SetBool("PlayerMoving", playerMoving);
 
         //transform.position = transform.position + movement * Time.deltaTime * playerSpeed;
         protagonist.velocity = movement * playerSpeed;
