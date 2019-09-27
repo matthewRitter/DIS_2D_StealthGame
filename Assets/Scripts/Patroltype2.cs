@@ -1,8 +1,9 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 
-public class Patroltype1 : MonoBehaviour
+public class Patroltype2 : MonoBehaviour
 {
     [Tooltip("Float defines detection distance in a little formula guy, Must be >0.5")]
     public float walldetectdistance = 1;
@@ -19,14 +20,14 @@ public class Patroltype1 : MonoBehaviour
     private int nextdir;
     Rigidbody2D rb;
     SpriteRenderer sr;
-    
+
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         sr = GetComponent<SpriteRenderer>();
-        currentdir = (int)Direction.Right;
-        nextdir = (int)Direction.Up;
+        currentdir = (int)Direction.Up;
+        nextdir = (int)Direction.Left;
 
         Vector2 velocity = rb.velocity;
         velocity.x += speed;
@@ -36,8 +37,9 @@ public class Patroltype1 : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Thread.Sleep(250);
         bool hitwall = WallCheck();
-        if(hitwall)
+        if (hitwall)
         {
             print("Wall Hit Complete");
         }
@@ -49,15 +51,15 @@ public class Patroltype1 : MonoBehaviour
 
         rb.velocity = CheckVelocity(currentdir);
 
-        Vector3 helpervector = (Mathf.Abs(rb.velocity.x) > Mathf.Abs(rb.velocity.y)) ? new Vector3(transform.position.x + (rb.velocity.x / rb.velocity.x)*walldetectdistance, transform.position.y, 0) : 
-                                                                                       new Vector3(transform.position.x, transform.position.y + (rb.velocity.y / rb.velocity.y)*walldetectdistance, 0);
+        Vector3 helpervector = (Mathf.Abs(rb.velocity.x) > Mathf.Abs(rb.velocity.y)) ? new Vector3(transform.position.x, transform.position.y + (rb.velocity.x / rb.velocity.x) * walldetectdistance, 0) :
+                                                                                       new Vector3(transform.position.x + (rb.velocity.y / rb.velocity.y) * walldetectdistance, transform.position.y, 0);
         if (rb.velocity.x < 0)
         {
-            helpervector.x += -2*walldetectdistance;
+            helpervector.y += -2 * walldetectdistance;
         }
         if (rb.velocity.y < 0)
         {
-            helpervector.y += -2*walldetectdistance;
+            helpervector.x += -2 * walldetectdistance;
         }
 
         Vector3 raystart = helpervector;
@@ -68,24 +70,22 @@ public class Patroltype1 : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(raystart, direction, walldetectdistance);
         Debug.DrawRay(raystart, direction, Color.green);
 
-        if (hit.collider != null)
+       if (hit.collider == null || !hit.collider.CompareTag("wall"))
         {
-            if (hit.collider.CompareTag("wall"))
-            {
-                currentdir = nextdir;
-                UpdateSprite();
-                return true;
-            }
-
+            currentdir = nextdir;
+            UpdateSprite();
+            return true;
         }
-            return false;
+
+
+        return false;
     }
 
     // Checks if velocity needs updating, if it does then updates velocity, current direction and next direction
     private Vector2 CheckVelocity(int curdir)
     {
         Vector2 velocity = rb.velocity;
-        switch(curdir)
+        switch (curdir)
         {
             case ((int)Direction.Right):
                 velocity = new Vector2(speed, 0);
@@ -108,7 +108,7 @@ public class Patroltype1 : MonoBehaviour
                 nextdir = !this.reverse ? (int)Direction.Right : (int)Direction.Left;
                 break;
             default:
-                velocity = new Vector2(speed,0);
+                velocity = new Vector2(speed, 0);
                 currentdir = (int)Direction.Right;
                 nextdir = !this.reverse ? (int)Direction.Up : (int)Direction.Down;
                 break;
@@ -120,24 +120,24 @@ public class Patroltype1 : MonoBehaviour
     //Updates the sprite being rendered based on current velocity direction 
     private void UpdateSprite()
     {
-        switch(currentdir)
-        {
-            case ((int)Direction.Right):
-                sr.sprite = orientationsprites[0];
-                break;
-            case ((int)Direction.Left):
-                sr.sprite = orientationsprites[1];
-                break;
-            case ((int)Direction.Up):
-                sr.sprite = orientationsprites[2];
-                break;
-            case ((int)Direction.Down):
-                sr.sprite = orientationsprites[3];
-                break;
-            default:
-                sr.sprite = orientationsprites[0];
-                break;
-        }
+        //switch (currentdir)
+        //{
+        //    case ((int)Direction.Right):
+        //        sr.sprite = orientationsprites[0];
+        //        break;
+        //    case ((int)Direction.Left):
+        //        sr.sprite = orientationsprites[1];
+        //        break;
+        //    case ((int)Direction.Up):
+        //        sr.sprite = orientationsprites[2];
+        //        break;
+        //    case ((int)Direction.Down):
+        //        sr.sprite = orientationsprites[3];
+        //        break;
+        //    default:
+        //        sr.sprite = orientationsprites[0];
+        //        break;
+        //}
     }
 
     //Changes rotation based on current velocity, not really being used atm
@@ -150,7 +150,4 @@ public class Patroltype1 : MonoBehaviour
             transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
         }
     }
-
-
 }
-
