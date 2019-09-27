@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class enemyDetection : MonoBehaviour
 {
@@ -23,6 +25,8 @@ public class enemyDetection : MonoBehaviour
     {
         if (seePlayer)
         {
+            seePlayer = !seePlayer;
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             print("GAME OVER. Run Some Function from here for game over");
         }
     }
