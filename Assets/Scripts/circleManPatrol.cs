@@ -17,6 +17,11 @@ public class circleManPatrol : MonoBehaviour
     private float originX;
     private float originY;
 
+    public Sprite[] sprites;
+
+    private SpriteRenderer sprite;
+
+
     Rigidbody2D rb;
     //BoxCollider2D collision;
 
@@ -32,6 +37,9 @@ public class circleManPatrol : MonoBehaviour
 
         rb = GetComponent<Rigidbody2D>();
         //collision = GetComponent<BoxCollider2D>();
+
+
+        sprite = GetComponent<SpriteRenderer>();
 
 
         if (clockwise)
@@ -52,12 +60,102 @@ public class circleManPatrol : MonoBehaviour
         }
         else
         {
-            timeCounter = patrolSpeed;
+            timeCounter += patrolSpeed;
         }
         float x = -Mathf.Cos(timeCounter) * circleRadius + originX;
         float y = -Mathf.Sin(timeCounter) * circleRadius + originY;
         transform.position = new Vector2(x, y);
 
+
+        float cos = -Mathf.Cos(timeCounter);
+        float sin = -Mathf.Sin(timeCounter);
+
+        if (patrolSpeed > 0)
+        {
+            if (sin > 0)
+            {
+                if ((cos >= -1) && (cos < -.5))
+                {
+                    sprite.sprite = sprites[7];
+                }
+                else if ((cos >= -.5) && (cos < 0))
+                {
+                    sprite.sprite = sprites[6];
+                }
+                else if ((cos >= 0) && (cos < .5))
+                {
+                    sprite.sprite = sprites[1];
+                }
+                else
+                {
+                    sprite.sprite = sprites[2];
+                }
+            }
+            else
+            {
+                if ((cos >= -1) && (cos < -.5))
+                {
+                    sprite.sprite = sprites[7];
+                }
+                else if ((cos >= -.5) && (cos < 0))
+                {
+                    sprite.sprite = sprites[6];
+                }
+                else if ((cos >= 0) && (cos < .5))
+                {
+                    sprite.sprite = sprites[1];
+                }
+                else
+                {
+                    sprite.sprite = sprites[2];
+                }
+            }
+        }
+        else
+        {
+            if (sin > 0)
+            {
+                if ((cos >= -1) && (cos < -.5))
+                {
+                    sprite.sprite = sprites[6];
+                }
+                else if ((cos >= -.5) && (cos < 0))
+                {
+                    sprite.sprite = sprites[7];
+                }
+                else if ((cos >= 0) && (cos < .5))
+                {
+                    sprite.sprite = sprites[1];
+                }
+                else
+                {
+                    sprite.sprite = sprites[2];
+                }
+            }
+            else
+            {
+                if ((cos >= -1) && (cos < -.5))
+                {
+                    sprite.sprite = sprites[5];
+                }
+                else if ((cos >= -.5) && (cos < 0))
+                {
+                    sprite.sprite = sprites[6];
+                }
+                else if ((cos >= 0) && (cos < .5))
+                {
+                    sprite.sprite = sprites[3];
+                }
+                else
+                {
+                    sprite.sprite = sprites[2];
+                }
+            }
+        }
+
+
+        print("X is:   " + cos);
+        //print("Y is:   " + sin);
 
     }
 
