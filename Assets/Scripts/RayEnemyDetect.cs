@@ -9,10 +9,13 @@ public class RayEnemyDetect : MonoBehaviour
     public float viewAngle;
     public int rayCount;
     public float lookDistance;
+    public GameObject rayRenderer;
+    public int rayRenderDensity;
 
 
     private LineRenderer viewLineRenderer;
     private List<RaycastHit2D> rays;
+    private List<GameObject> rayRenderersList;
     private float minViewAngle;
     private float maxViewAngle;
     private int layerMask;
@@ -20,6 +23,7 @@ public class RayEnemyDetect : MonoBehaviour
     void Start()
     {
         rays = new List<RaycastHit2D>(rayCount);
+        rayRenderersList = new List<GameObject>();
 
         viewLineRenderer = GetComponent<LineRenderer>();
         viewLineRenderer.positionCount = rayCount;
@@ -31,6 +35,9 @@ public class RayEnemyDetect : MonoBehaviour
 
         layerMask = 1 << 8;
         layerMask = ~layerMask;
+
+        if (rayRenderDensity % 2 == 0)
+            rayRenderDensity += 1;
 
     }
 
@@ -45,31 +52,51 @@ public class RayEnemyDetect : MonoBehaviour
 
         int count = 0;
 
+        foreach (GameObject obj in rayRenderersList)
+            Destroy(obj);
+
+        rayRenderersList.Clear();
+
         foreach (RaycastHit2D hit in rays)
         {
-            if(hit.collider != null)
+
+            if (hit.collider != null)
             {
                 if (hit.collider.tag == "Player")
                     SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            }
 
-                renderVectors[count++] = hit.point;
+            if (count % rayRenderDensity == 0)
+            {
+                GameObject rayRendererObject = Instantiate(rayRenderer, transform);
+                rayRendererObject.transform.SetParent(transform);
+                rayRenderersList.Add(rayRendererObject);
 
-                //for(int i = 0; i < 5; i++)
-                //{
-                //    if (!(count + i > renderVectors.Count - 1))
-                //        renderVectors[count + i] = hit.point;
 
-                //    if (!(count - 1 < 0))
-                //        renderVectors[count - i] = hit.point;
+                LineRenderer templine = rayRendererObject.GetComponent<LineRenderer>();
+                templine.startWidth = 0.10f * rayRenderDensity;
+                templine.endWidth = 0.10f * rayRenderDensity;
+                templine.SetPosition(0, transform.position);
 
-                //    count++;
-                //}
-                
+                if (hit.collider != null)
+                {
+                    if (count % rayRenderDensity == 0)
+                        templine.SetPosition(1, hit.point);
+
+                    print(hit.collider.tag);
+                }
+                else
+                {
+                    templine.SetPosition(1, renderVectors[count]);
+                }
 
             }
+            count++;
+
+
+
         }
 
-        viewLineRenderer.SetPositions(renderVectors.ToArray());
         rays.Clear();
     }
 
@@ -96,28 +123,18 @@ public class RayEnemyDetect : MonoBehaviour
             Vector3 dir1 = Quaternion.AngleAxis(angle1, transform.forward) * transform.right;
             Vector3 dir2 = Quaternion.AngleAxis(angle2, transform.forward) * transform.right;
 
-            rays.Add(Physics2D.Raycast(transform.position, dir1, lookDistance, layerMask));
-            rays.Add(Physics2D.Raycast(transform.position, dir2, lookDistance, layerMask));
+            rays.Add(Physics2D.Raycast(transform.position, dir1, lookDistance)); //, layerMask));
+            rays.Add(Physics2D.Raycast(transform.position, dir2, lookDistance)); //, layerMask));
 
             renderVectors.Add(transform.position + (dir1 * lookDistance));
             renderVectors.Add(transform.position + (dir2 * lookDistance));
 
 
-            Debug.DrawRay(transform.position, dir1, Color.green);
-            Debug.DrawRay(transform.position, dir2, Color.red);
+            //Debug.DrawRay(transform.position, dir1, Color.green);
+            //Debug.DrawRay(transform.position, dir2, Color.red);
         }
 
         return renderVectors;
-
-        //print(renderVectors[0]);
-        //viewLineRenderer.SetPosition(0, transform.position);
-        //viewLineRenderer.SetPosition(1, renderVectors[0]);
-        //viewLineRenderer.SetPosition(2, transform.position);
-        //viewLineRenderer.SetPosition(3, renderVectors[1]);
-        //viewLineRenderer.SetPosition(4, transform.position);
-
-
-        //viewLineRenderer.SetPositions(renderVectors);
 
     }
 

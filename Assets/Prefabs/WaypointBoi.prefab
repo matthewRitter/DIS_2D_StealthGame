@@ -138,10 +138,7 @@ MonoBehaviour:
   waypoints:
   - {fileID: 0}
   - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  speed: 0.1
+  speed: 3
 --- !u!114 &2137867330325218907
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -155,8 +152,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   viewAngle: 45
-  rayCount: 80
+  rayCount: 200
   lookDistance: 4
+  rayRenderer: {fileID: 5173368733379267076, guid: 3b3bd2d5be2284d4faceaa72348a0bb2,
+    type: 3}
+  rayRenderDensity: 3
 --- !u!120 &2137867330325218908
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -174,7 +174,7 @@ LineRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
