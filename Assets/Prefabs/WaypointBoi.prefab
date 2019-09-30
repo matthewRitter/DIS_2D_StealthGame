@@ -138,7 +138,9 @@ MonoBehaviour:
   waypoints:
   - {fileID: 0}
   - {fileID: 0}
-  speed: 3
+  chaseSpeed: 5
+  patrolSpeed: 1
+  lookAroundTime: 5
 --- !u!114 &2137867330325218907
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -157,6 +159,8 @@ MonoBehaviour:
   rayRenderer: {fileID: 5173368733379267076, guid: 3b3bd2d5be2284d4faceaa72348a0bb2,
     type: 3}
   rayRenderDensity: 3
+  renderLight: 1
+  trackingFrameCount: 5
 --- !u!120 &2137867330325218908
 LineRenderer:
   m_ObjectHideFlags: 0

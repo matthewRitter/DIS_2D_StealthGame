@@ -11,22 +11,31 @@ public class RayEnemyDetect : MonoBehaviour
     public float lookDistance;
     public GameObject rayRenderer;
     public int rayRenderDensity;
-
+    public bool renderLight = true;
+    public int trackingFrameCount;
 
     private LineRenderer viewLineRenderer;
     private List<RaycastHit2D> rays;
     private List<GameObject> rayRenderersList;
+    private WaypointPatrol patrolScript;
     private float minViewAngle;
     private float maxViewAngle;
     private int layerMask;
+    private bool updatePlayerPos;
+    private bool active;
     // Start is called before the first frame update
     void Start()
     {
         rays = new List<RaycastHit2D>(rayCount);
         rayRenderersList = new List<GameObject>();
+        patrolScript = GetComponent<WaypointPatrol>();
+
 
         viewLineRenderer = GetComponent<LineRenderer>();
         viewLineRenderer.positionCount = rayCount;
+
+        updatePlayerPos = true;
+        active = true;
 
         maxViewAngle = viewAngle;
         minViewAngle = -viewAngle;
@@ -44,11 +53,14 @@ public class RayEnemyDetect : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        CheckRays(CreateRays());
+        if(active)
+            CheckRays(CreateRays());
     }
 
     private void CheckRays(List<Vector3> renderVectors)
     {
+
+        patrolScript.SetAlertState(false);
 
         int count = 0;
 
@@ -63,10 +75,19 @@ public class RayEnemyDetect : MonoBehaviour
             if (hit.collider != null)
             {
                 if (hit.collider.tag == "Player")
-                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                {
+                    patrolScript.SetAlertState(true);
+
+                    if(updatePlayerPos)
+                    {
+                        patrolScript.SetPlayerPosition(hit.point);
+                        StartCoroutine(TrackingCooldown());
+                    }
+              
+                }
             }
 
-            if (count % rayRenderDensity == 0)
+            if (count % rayRenderDensity == 0 && renderLight)
             {
                 GameObject rayRendererObject = Instantiate(rayRenderer, transform);
                 rayRendererObject.transform.SetParent(transform);
@@ -83,7 +104,6 @@ public class RayEnemyDetect : MonoBehaviour
                     if (count % rayRenderDensity == 0)
                         templine.SetPosition(1, hit.point);
 
-                    print(hit.collider.tag);
                 }
                 else
                 {
@@ -91,10 +111,8 @@ public class RayEnemyDetect : MonoBehaviour
                 }
 
             }
+
             count++;
-
-
-
         }
 
         rays.Clear();
@@ -137,5 +155,33 @@ public class RayEnemyDetect : MonoBehaviour
         return renderVectors;
 
     }
+
+
+    public void SetActivityState(bool activeState)
+    {
+        active = activeState;
+        if(!active)
+        {
+            rays.Clear();
+            foreach (GameObject obj in rayRenderersList)
+                Destroy(obj);
+        }
+    }
+
+    //public bool GetActivityState()
+    //{
+    //    return active;
+    //}
+
+    IEnumerator TrackingCooldown()
+    {
+        updatePlayerPos = false;
+
+        for (int i = 0; i < trackingFrameCount; i++)
+            yield return new WaitForEndOfFrame();
+
+        updatePlayerPos = true;
+    }
+
 
 }

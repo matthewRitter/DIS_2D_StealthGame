@@ -80,8 +80,6 @@ public class CreateLightRays : MonoBehaviour
                 {
                     if (count % rayRenderDensity == 0)
                         templine.SetPosition(1, hit.point);
-
-                    print(hit.collider.tag);
                 }
                 else
                 {
