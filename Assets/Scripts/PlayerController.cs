@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     public AudioSource sound;
     public Animator animator;
     public GameObject knife;
+    public GameObject damageHitBox;
     float prevMagnitude;
     private bool playerMoving;
     private Vector2 lastMove;
@@ -32,6 +33,9 @@ public class PlayerController : MonoBehaviour
         float knifeHori = Input.GetAxis("Horizontal");
         float knifeVert = Input.GetAxis("Vertical");
 
+        if (protagonist.velocity.magnitude > 0) {
+            knife.transform.up = protagonist.velocity.normalized;
+        }
 
         if (Input.GetAxis("Horizontal") > 0.7)
         {
