@@ -25,6 +25,13 @@ public class PlayerController : MonoBehaviour
         sound = GetComponent<AudioSource>();
     }
 
+    IEnumerator Attack()
+    {
+        damageHitBox.GetComponent<Collider>().enabled = true;
+        yield return new WaitForSeconds(1.0f);
+        damageHitBox.GetComponent<Collider>().enabled = false;
+    }
+
     // Update is called once per frame
     void FixedUpdate()
     {
@@ -35,6 +42,12 @@ public class PlayerController : MonoBehaviour
 
         if (protagonist.velocity.magnitude > 0) {
             knife.transform.up = protagonist.velocity.normalized;
+        }
+
+        if (Input.GetKey("space"))
+        {
+            Debug.Log("SPACE");
+            Attack();
         }
 
         if (Input.GetAxis("Horizontal") > 0.7)

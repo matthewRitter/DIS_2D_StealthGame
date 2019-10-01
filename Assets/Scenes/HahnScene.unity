@@ -718,6 +718,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7779449245347438241, guid: e6ef0ee18b0f4124cb091ddb7beadd7d,
+        type: 3}
+      propertyPath: Animator
+      value: 
+      objectReference: {fileID: 1876633525}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: e6ef0ee18b0f4124cb091ddb7beadd7d, type: 3}
 --- !u!1001 &276149941
@@ -1070,7 +1075,7 @@ PrefabInstance:
     - target: {fileID: 7723783554244129124, guid: 2e0930c3f43896d4190c1c3ed12d9ff0,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7723783554244129124, guid: 2e0930c3f43896d4190c1c3ed12d9ff0,
         type: 3}
@@ -1717,6 +1722,7 @@ GameObject:
   m_Component:
   - component: {fileID: 776600308}
   - component: {fileID: 776600309}
+  - component: {fileID: 776600310}
   m_Layer: 0
   m_Name: damageHitBox
   m_TagString: Untagged
@@ -1745,7 +1751,7 @@ PolygonCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 776600307}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
@@ -1767,8 +1773,20 @@ PolygonCollider2D:
       - {x: -0.63505954, y: 1.8585734}
       - {x: -0.8134604, y: 1.1993893}
       - {x: 0.004937179, y: 0.001857707}
-      - {x: 0.91589975, y: 1.2420188}
-      - {x: 0.71820104, y: 1.8194695}
+      - {x: 0.8805977, y: 1.2022462}
+      - {x: 0.64759696, y: 1.8194695}
+--- !u!114 &776600310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 776600307}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f86d21f40d046545880fb6980b82c2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &888064146
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -39110,6 +39128,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1281143362}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &1876633525 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: -3071315814496460995, guid: e6ef0ee18b0f4124cb091ddb7beadd7d,
+    type: 3}
+  m_PrefabInstance: {fileID: 263472718}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1889737637 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 680926445893120519, guid: 5a397e0bcdd5a6449a16017516985b24,
@@ -39610,7 +39634,7 @@ Transform:
   - {fileID: 6666978070568567053}
   - {fileID: 1396036901}
   m_Father: {fileID: 0}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2647226822489372406
 GameObject:
