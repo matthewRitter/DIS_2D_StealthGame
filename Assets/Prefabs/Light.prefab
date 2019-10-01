@@ -95,11 +95,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   viewAngle: 180
-  rayCount: 500
-  lookDistance: 5
+  rayCount: 2000
+  lookDistance: 30
   rayRenderer: {fileID: 5173368733379267076, guid: 3b3bd2d5be2284d4faceaa72348a0bb2,
     type: 3}
-  rayRenderDensity: 5
+  rayRenderDensity: 3
+  alpha: 0.005
 --- !u!120 &808491721111749059
 LineRenderer:
   m_ObjectHideFlags: 0
