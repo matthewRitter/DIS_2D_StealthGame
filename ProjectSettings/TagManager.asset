@@ -7,6 +7,7 @@ TagManager:
   - wall
   - Wall
   - EnemyBoi
+  - Enemy
   layers:
   - Default
   - TransparentFX
