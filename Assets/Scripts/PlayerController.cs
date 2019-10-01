@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour
     public AudioSource sound;
     public Animator animator;
     public GameObject knife;
-
+    float prevMagnitude;
     private bool playerMoving;
     private Vector2 lastMove;
 
@@ -31,8 +31,8 @@ public class PlayerController : MonoBehaviour
 
         float knifeHori = Input.GetAxis("Horizontal");
         float knifeVert = Input.GetAxis("Vertical");
-        
-    
+
+
         if (Input.GetAxis("Horizontal") > 0.7)
         {
             knifeHori = 0.5f;
@@ -53,21 +53,43 @@ public class PlayerController : MonoBehaviour
             knifeVert = -0.5f;
         }
 
-        Vector3 movement = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"), 0.0f);
+        Vector2 movement = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
 
-        
-
-        if(movement.magnitude > 0.0f || movement.magnitude < 0.0f)
+        //if the player is moving       
+        if (movement.magnitude > 0)
         {
-            playerMoving = true;
+            //set the animator to moving
+            animator.SetBool("PlayerMoving", true);
+
+            //if the magnitude is increasing you want to update the "running" state in the naimator but also the last move - this way when
+            //player releases the key, the last move will be stored already in the animator  
+            if (movement.magnitude > prevMagnitude || prevMagnitude >= 0.99f)
+            {
+                animator.SetFloat("Horizontal", movement.x);
+                animator.SetFloat("Vertical", movement.y);
+
+
+                lastMove = movement;
+                animator.SetFloat("LastMoveX", lastMove.x);
+                animator.SetFloat("LastMoveY", lastMove.y);
+            }
+
         }
+
+        //set the player movement to false in the animator
+        if (movement.magnitude == 0)
+        {
+            animator.SetBool("PlayerMoving", false);
+        }
+
+        //update the previous magnitude
+        prevMagnitude = movement.magnitude;
 
         knife.transform.localPosition = new Vector3(knifeHori, knifeVert, 0.0f);
 
-        animator.SetFloat("Horizontal", movement.x);
-        animator.SetFloat("Vertical", movement.y);
+
+        //redundant -> not used in the animator
         animator.SetFloat("Magnitude", movement.magnitude);
-        animator.SetBool("PlayerMoving", playerMoving);
 
         //transform.position = transform.position + movement * Time.deltaTime * playerSpeed;
         protagonist.velocity = movement * playerSpeed;
