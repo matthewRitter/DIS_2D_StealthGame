@@ -1,7 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 
 public class RayEnemyDetect : MonoBehaviour
@@ -14,11 +13,13 @@ public class RayEnemyDetect : MonoBehaviour
     public int trackingFrameCount;
     public float alpha = 0.01f;
     public bool renderLight = true;
+    public GameObject cameraObj;
 
     private LineRenderer viewLineRenderer;
     private List<RaycastHit2D> rays;
     private List<GameObject> rayRenderersList;
     private WaypointPatrol patrolScript;
+    private ScreenShake screenShake;
     private float minViewAngle;
     private float maxViewAngle;
     private int layerMask;
@@ -30,6 +31,7 @@ public class RayEnemyDetect : MonoBehaviour
         rays = new List<RaycastHit2D>(rayCount);
         rayRenderersList = new List<GameObject>();
         patrolScript = GetComponent<WaypointPatrol>();
+        screenShake = cameraObj.GetComponent<ScreenShake>();
 
 
         viewLineRenderer = GetComponent<LineRenderer>();
@@ -78,8 +80,10 @@ public class RayEnemyDetect : MonoBehaviour
                 if (hit.collider.tag == "Player")
                 {
                     patrolScript.SetAlertState(true);
+                    float baseShakeMag = 1/((Vector3)hit.point - transform.position).magnitude;
+                    screenShake.Shake(0.1f, 0.3f*baseShakeMag, 1.0f);
 
-                    if(updatePlayerPos)
+                    if (updatePlayerPos)
                     {
                         patrolScript.SetPlayerPosition(hit.point);
                         StartCoroutine(TrackingCooldown());
@@ -114,7 +118,7 @@ public class RayEnemyDetect : MonoBehaviour
                 }
 
                 Gradient grad = new Gradient();
-                grad.SetKeys(new GradientColorKey[] { new GradientColorKey(Color.yellow, 0.0f), new GradientColorKey(Color.white, 1.0f) },
+                grad.SetKeys(new GradientColorKey[] { new GradientColorKey(Color.white, 0.0f), new GradientColorKey(Color.white, 1.0f) },
                              new GradientAlphaKey[] { new GradientAlphaKey(alpha, 0.0f) } );
 
                 templine.colorGradient = grad;

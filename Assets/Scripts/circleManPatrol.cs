@@ -16,10 +16,14 @@ public class circleManPatrol : MonoBehaviour
     private Vector2 origin;
     private float originX;
     private float originY;
+    
 
-    public Sprite[] sprites;
+    public Animator Animator;
+    private bool playerMoving;
 
-    private SpriteRenderer sprite;
+    private float lastX;
+    private float lastY;
+
 
 
     Rigidbody2D rb;
@@ -39,13 +43,15 @@ public class circleManPatrol : MonoBehaviour
         //collision = GetComponent<BoxCollider2D>();
 
 
-        sprite = GetComponent<SpriteRenderer>();
 
 
         if (clockwise)
         {
             patrolSpeed = -patrolSpeed;
         }
+        Animator.SetBool("PlayerMoving", true);
+        lastX = transform.position.x;
+        lastY = transform.position.y;
 
     }
 
@@ -65,97 +71,22 @@ public class circleManPatrol : MonoBehaviour
         float x = -Mathf.Cos(timeCounter) * circleRadius + originX;
         float y = -Mathf.Sin(timeCounter) * circleRadius + originY;
         transform.position = new Vector2(x, y);
+        
 
 
         float cos = -Mathf.Cos(timeCounter);
         float sin = -Mathf.Sin(timeCounter);
 
-        if (patrolSpeed > 0)
+        if (clockwise)
         {
-            if (sin > 0)
-            {
-                if ((cos >= -1) && (cos < -.5))
-                {
-                    sprite.sprite = sprites[7];
-                }
-                else if ((cos >= -.5) && (cos < 0))
-                {
-                    sprite.sprite = sprites[6];
-                }
-                else if ((cos >= 0) && (cos < .5))
-                {
-                    sprite.sprite = sprites[1];
-                }
-                else
-                {
-                    sprite.sprite = sprites[2];
-                }
-            }
-            else
-            {
-                if ((cos >= -1) && (cos < -.5))
-                {
-                    sprite.sprite = sprites[7];
-                }
-                else if ((cos >= -.5) && (cos < 0))
-                {
-                    sprite.sprite = sprites[6];
-                }
-                else if ((cos >= 0) && (cos < .5))
-                {
-                    sprite.sprite = sprites[1];
-                }
-                else
-                {
-                    sprite.sprite = sprites[2];
-                }
-            }
+            Animator.SetFloat("Horizontal", cos);
+            Animator.SetFloat("Vertical", sin);
         }
         else
         {
-            if (sin > 0)
-            {
-                if ((cos >= -1) && (cos < -.5))
-                {
-                    sprite.sprite = sprites[6];
-                }
-                else if ((cos >= -.5) && (cos < 0))
-                {
-                    sprite.sprite = sprites[7];
-                }
-                else if ((cos >= 0) && (cos < .5))
-                {
-                    sprite.sprite = sprites[1];
-                }
-                else
-                {
-                    sprite.sprite = sprites[2];
-                }
-            }
-            else
-            {
-                if ((cos >= -1) && (cos < -.5))
-                {
-                    sprite.sprite = sprites[5];
-                }
-                else if ((cos >= -.5) && (cos < 0))
-                {
-                    sprite.sprite = sprites[6];
-                }
-                else if ((cos >= 0) && (cos < .5))
-                {
-                    sprite.sprite = sprites[3];
-                }
-                else
-                {
-                    sprite.sprite = sprites[2];
-                }
-            }
+            Animator.SetFloat("Horizontal", -cos);
+            Animator.SetFloat("Vertical", -sin);
         }
-
-
-        print("X is:   " + cos);
-        //print("Y is:   " + sin);
 
     }
 
@@ -164,6 +95,7 @@ public class circleManPatrol : MonoBehaviour
         if (collision.gameObject.tag == "wall")
         {
             patrolSpeed = -patrolSpeed;
+            clockwise = !clockwise;
         }
     }
 }

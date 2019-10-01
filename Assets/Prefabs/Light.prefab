@@ -101,6 +101,7 @@ MonoBehaviour:
     type: 3}
   rayRenderDensity: 3
   alpha: 0.005
+  color: {r: 1, g: 1, b: 1, a: 0}
 --- !u!120 &808491721111749059
 LineRenderer:
   m_ObjectHideFlags: 0
