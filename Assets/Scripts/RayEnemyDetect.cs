@@ -11,8 +11,9 @@ public class RayEnemyDetect : MonoBehaviour
     public float lookDistance;
     public GameObject rayRenderer;
     public int rayRenderDensity;
-    public bool renderLight = true;
     public int trackingFrameCount;
+    public float alpha = 0.01f;
+    public bool renderLight = true;
 
     private LineRenderer viewLineRenderer;
     private List<RaycastHit2D> rays;
@@ -99,6 +100,8 @@ public class RayEnemyDetect : MonoBehaviour
                 templine.endWidth = 0.10f * rayRenderDensity;
                 templine.SetPosition(0, transform.position);
 
+
+
                 if (hit.collider != null)
                 {
                     if (count % rayRenderDensity == 0)
@@ -110,6 +113,11 @@ public class RayEnemyDetect : MonoBehaviour
                     templine.SetPosition(1, renderVectors[count]);
                 }
 
+                Gradient grad = new Gradient();
+                grad.SetKeys(new GradientColorKey[] { new GradientColorKey(Color.yellow, 0.0f), new GradientColorKey(Color.white, 1.0f) },
+                             new GradientAlphaKey[] { new GradientAlphaKey(alpha, 0.0f) } );
+
+                templine.colorGradient = grad;
             }
 
             count++;
@@ -141,15 +149,12 @@ public class RayEnemyDetect : MonoBehaviour
             Vector3 dir1 = Quaternion.AngleAxis(angle1, transform.forward) * transform.right;
             Vector3 dir2 = Quaternion.AngleAxis(angle2, transform.forward) * transform.right;
 
-            rays.Add(Physics2D.Raycast(transform.position, dir1, lookDistance)); //, layerMask));
-            rays.Add(Physics2D.Raycast(transform.position, dir2, lookDistance)); //, layerMask));
+            rays.Add(Physics2D.Raycast(transform.position, dir1, lookDistance));
+            rays.Add(Physics2D.Raycast(transform.position, dir2, lookDistance));
 
             renderVectors.Add(transform.position + (dir1 * lookDistance));
             renderVectors.Add(transform.position + (dir2 * lookDistance));
 
-
-            //Debug.DrawRay(transform.position, dir1, Color.green);
-            //Debug.DrawRay(transform.position, dir2, Color.red);
         }
 
         return renderVectors;
@@ -168,10 +173,6 @@ public class RayEnemyDetect : MonoBehaviour
         }
     }
 
-    //public bool GetActivityState()
-    //{
-    //    return active;
-    //}
 
     IEnumerator TrackingCooldown()
     {

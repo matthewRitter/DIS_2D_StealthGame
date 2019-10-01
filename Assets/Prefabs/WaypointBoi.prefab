@@ -140,7 +140,7 @@ MonoBehaviour:
   - {fileID: 0}
   chaseSpeed: 5
   patrolSpeed: 1
-  lookAroundTime: 5
+  lookAroundTime: 3
 --- !u!114 &2137867330325218907
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -153,14 +153,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11583eaf313506c4582d1141ff7a02de, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  viewAngle: 45
-  rayCount: 200
+  viewAngle: 15
+  rayCount: 300
   lookDistance: 4
   rayRenderer: {fileID: 5173368733379267076, guid: 3b3bd2d5be2284d4faceaa72348a0bb2,
     type: 3}
   rayRenderDensity: 3
+  trackingFrameCount: 1
+  alpha: 0.01
   renderLight: 1
-  trackingFrameCount: 5
 --- !u!120 &2137867330325218908
 LineRenderer:
   m_ObjectHideFlags: 0
