@@ -9,6 +9,7 @@ public class CreateLightRays : MonoBehaviour
     public float lookDistance;
     public GameObject rayRenderer;
     public int rayRenderDensity;
+    public float alpha = 0.01f;
 
 
     private LineRenderer viewLineRenderer;
@@ -85,6 +86,12 @@ public class CreateLightRays : MonoBehaviour
                 {
                     templine.SetPosition(1, renderVectors[count]);
                 }
+
+                Gradient grad = new Gradient();
+                grad.SetKeys(new GradientColorKey[] { new GradientColorKey(Color.yellow, 0.0f), new GradientColorKey(Color.white, 1.0f) },
+                             new GradientAlphaKey[] { new GradientAlphaKey(alpha, 0.0f) });
+
+                templine.colorGradient = grad;
 
             }
             count++;
