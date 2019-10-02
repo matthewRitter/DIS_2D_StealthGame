@@ -82,7 +82,7 @@ public class RayEnemyDetect : MonoBehaviour
                 {
                     patrolScript.SetAlertState(true);
                     float baseShakeMag = 1/((Vector3)hit.point - transform.position).magnitude;
-                    screenShake.Shake(0.1f, 0.3f*baseShakeMag, 1.0f);
+                    screenShake.Shake(0.2f, 0.3f*baseShakeMag, 1.0f);
 
                     if (updatePlayerPos)
                     {
