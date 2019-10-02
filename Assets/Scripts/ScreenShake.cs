@@ -33,8 +33,8 @@ public class ScreenShake : MonoBehaviour
 
             if (transform.position != player.transform.position)
             {
-                transform.position = Vector3.Slerp(transform.position, player.transform.position, 10 * Time.deltaTime);
-                transform.position = new Vector3(transform.position.x, transform.position.y, -10);
+                transform.position = Vector3.Slerp(transform.position, (Vector2)player.transform.position, 10 * Time.deltaTime);
+                //transform.position = new Vector3(transform.position.x, transform.position.y, -10);
             }
             else
                 transform.position = new Vector3(player.transform.position.x + shakeAmt.x, player.transform.position.y + shakeAmt.y, -10);
