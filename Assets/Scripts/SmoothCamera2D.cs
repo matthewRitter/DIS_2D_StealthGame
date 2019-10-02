@@ -1,24 +1,14 @@
-﻿
+﻿//https://www.salusgames.com/2016/12/28/smooth-2d-camera-follow-in-unity3d/
 using UnityEngine;
-using System.Collections;
 
 public class SmoothCamera2D : MonoBehaviour
 {
+    public float FollowSpeed = 2f;
+    public Transform Target;
 
-    public float dampTime = 0.15f;
-    private Vector3 velocity = Vector3.zero;
-    public Transform target;
-
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        if (target)
-        {
-           // Vector3 point = camera.WorldToViewportPoint(target.position);
-            //Vector3 delta = target.position - camera.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, point.z)); //(new Vector3(0.5, 0.5, point.z));
-           // Vector3 destination = transform.position + delta;
-           // transform.position = Vector3.SmoothDamp(transform.position, destination, ref velocity, dampTime);
-        }
-
+        Vector3 newPosition = Target.position;
+        transform.position = Vector3.Slerp(transform.position, newPosition, FollowSpeed * Time.deltaTime);
     }
 }

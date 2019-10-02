@@ -83,7 +83,7 @@ public class PlayerController : MonoBehaviour
             //set the animator to moving
             animator.SetBool("PlayerMoving", true);
 
-            //if the magnitude is increasing you want to update the "running" state in the naimator but also the last move - this way when
+            //if the magnitude is increasing you want to update the "running" state in the animator but also the last move - this way when
             //player releases the key, the last move will be stored already in the animator  
             if (movement.magnitude > prevMagnitude || prevMagnitude >= 0.99f)
             {

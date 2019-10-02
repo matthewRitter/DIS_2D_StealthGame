@@ -80,6 +80,7 @@ public class WaypointPatrol : MonoBehaviour
         //speed = detectScript.GetActivityState() ? chaseSpeed : 0;
         speed = chaseSpeed;
         chaseSpeed *= 1.01f;
+        print("PLAYER POSITION: " + playerPosition);
 
         var step = speed * Time.deltaTime;
         transform.position = Vector3.MoveTowards(transform.position, playerPosition, step);
