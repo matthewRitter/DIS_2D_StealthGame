@@ -160,6 +160,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   direction: 0
+  sprites: []
   wallDetectionDistance: 3
   patrolSpeed: 3
 --- !u!50 &1711773988220970230

@@ -978,7 +978,6 @@ GameObject:
   - component: {fileID: 291023939}
   - component: {fileID: 8662968551763908592}
   - component: {fileID: 8662968551763908599}
-  - component: {fileID: 291023940}
   m_Layer: 0
   m_Name: player
   m_TagString: Player
@@ -1007,14 +1006,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!81 &291023940
-AudioListener:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 291023938}
-  m_Enabled: 1
 --- !u!114 &291023941
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1032,6 +1023,7 @@ MonoBehaviour:
   sound: {fileID: 0}
   animator: {fileID: 8662968551763908599}
   knife: {fileID: 8662968550459890618}
+  damageHitBox: {fileID: 0}
 --- !u!212 &291023942
 SpriteRenderer:
   m_ObjectHideFlags: 0

@@ -12,11 +12,15 @@ public class backAndForthPatrol : MonoBehaviour
     //2 is right
     //3 is down
 
+    public Sprite[] sprites;
+
 
     public float wallDetectionDistance;
 
     public float patrolSpeed;
 
+
+    private SpriteRenderer spriteRenderer;
 
     Rigidbody2D rb2d;
 
@@ -26,7 +30,9 @@ public class backAndForthPatrol : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        print(direction);
+
+        spriteRenderer = GetComponent<SpriteRenderer>();
+
         rb2d = GetComponent<Rigidbody2D>();
 
 
@@ -34,15 +40,19 @@ public class backAndForthPatrol : MonoBehaviour
         {
             case 0:
                 directionFacing = Vector2.left;
+                spriteRenderer.sprite = sprites[0];
                 break;
             case 1:
                 directionFacing = Vector2.up;
+                spriteRenderer.sprite = sprites[1];
                 break;
             case 2:
                 directionFacing = Vector2.right;
+                spriteRenderer.sprite = sprites[2];
                 break;
             case 3:
                 directionFacing = Vector2.down;
+                spriteRenderer.sprite = sprites[3];
                 break;
         }
 
@@ -56,18 +66,22 @@ public class backAndForthPatrol : MonoBehaviour
         if (direction == 0)
         {
             origin.x -= 1;
+            spriteRenderer.sprite = sprites[0];
         }
         else if (direction == 1)
         {
             origin.y += 1;
+            spriteRenderer.sprite = sprites[1];
         }
         else if (direction == 2)
         {
             origin.x += 1;
+            spriteRenderer.sprite = sprites[2];
         }
         else if (direction == 3)
         {
             origin.y -= 1;
+            spriteRenderer.sprite = sprites[3];
         }
 
         RaycastHit2D wall = Physics2D.Raycast(origin, directionFacing, wallDetectionDistance);
