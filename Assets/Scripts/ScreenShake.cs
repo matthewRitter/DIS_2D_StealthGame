@@ -8,6 +8,7 @@ public class ScreenShake : MonoBehaviour
     public float magnitude = 0.7f;
     public float dampingSpeed = 1.0f;
     private Vector3 initialPosition;
+    public GameObject player;
 
     // Start is called before the first frame update
     void Start()
@@ -17,7 +18,7 @@ public class ScreenShake : MonoBehaviour
 
     void OnEnable()
     {
-        initialPosition = transform.localPosition;
+        initialPosition = player.transform.position;
     }
 
     // Update is called once per frame
@@ -25,15 +26,27 @@ public class ScreenShake : MonoBehaviour
     {
         if (duration > 0)
         {
-            transform.localPosition = initialPosition + Random.insideUnitSphere * magnitude;
+            //transform.position = initialPosition + Random.insideUnitSphere * magnitude;
+
+            Vector3 shakeAmt = Random.insideUnitSphere * magnitude;
+
+
+            if (transform.position != player.transform.position)
+            {
+                transform.position = Vector3.Slerp(transform.position, (Vector2)player.transform.position, 10 * Time.deltaTime);
+                //transform.position = new Vector3(transform.position.x, transform.position.y, -10);
+            }
+            else
+                transform.position = new Vector3(player.transform.position.x + shakeAmt.x, player.transform.position.y + shakeAmt.y, -10);
 
             duration -= Time.deltaTime * dampingSpeed;
         }
         else
         {
             duration = 0f;
-            transform.localPosition = initialPosition;
+            //transform.position = initialPosition;
         }
+
     }
 
     public void Shake(float shakeTime = 0.5f, float shakeMagnitude = 0.7f, float shakeDamping = 1.0f)

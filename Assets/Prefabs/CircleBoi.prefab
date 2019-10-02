@@ -159,7 +159,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7779449245347438240}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 80bd7985c17f38b41a08863c3298563f, type: 2}
   m_CullingMode: 0
@@ -302,5 +302,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   poofPrefab: {fileID: 4708722353914459623, guid: eb9c318d63ed2f04bacb7f94fe65dd10,
     type: 3}
+  bloodPrefab: {fileID: 0}
   poofQuantity: 7
   radius: 1

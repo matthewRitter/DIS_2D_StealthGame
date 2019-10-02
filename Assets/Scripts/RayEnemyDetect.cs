@@ -62,9 +62,10 @@ public class RayEnemyDetect : MonoBehaviour
 
     private void CheckRays(List<Vector3> renderVectors)
     {
-
-        patrolScript.SetAlertState(false);
-
+        if (patrolScript != null)
+        {
+            patrolScript.SetAlertState(false);
+        }
         int count = 0;
 
         foreach (GameObject obj in rayRenderersList)
