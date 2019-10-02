@@ -18,12 +18,14 @@ public class circleManPatrol : MonoBehaviour
     private float originY;
     
 
-    public Animator Animator;
+    //public Animator Animator;
     private bool playerMoving;
 
     private float lastX;
     private float lastY;
 
+
+    private Vector2 prevPos;
 
 
     Rigidbody2D rb;
@@ -33,6 +35,7 @@ public class circleManPatrol : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        prevPos = transform.position;
         origin = transform.position;
         originX = origin.x + circleRadius;
         originY = origin.y + circleRadius;
@@ -49,7 +52,7 @@ public class circleManPatrol : MonoBehaviour
         {
             patrolSpeed = -patrolSpeed;
         }
-        Animator.SetBool("PlayerMoving", true);
+        //Animator.SetBool("PlayerMoving", true);
         lastX = transform.position.x;
         lastY = transform.position.y;
 
@@ -70,13 +73,23 @@ public class circleManPatrol : MonoBehaviour
         }
         float x = -Mathf.Cos(timeCounter) * circleRadius + originX;
         float y = -Mathf.Sin(timeCounter) * circleRadius + originY;
+
+
+
+
+
         transform.position = new Vector2(x, y);
+
+        transform.right = (Vector2)transform.position - prevPos;
         
 
 
         float cos = -Mathf.Cos(timeCounter);
         float sin = -Mathf.Sin(timeCounter);
 
+        prevPos = transform.position;
+
+        /*
         if (clockwise)
         {
             Animator.SetFloat("Horizontal", cos);
@@ -87,6 +100,7 @@ public class circleManPatrol : MonoBehaviour
             Animator.SetFloat("Horizontal", -cos);
             Animator.SetFloat("Vertical", -sin);
         }
+        */
 
     }
 
