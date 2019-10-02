@@ -13,6 +13,7 @@ public class PlayerController : MonoBehaviour
     public AudioSource sound;
     public Animator animator;
     public GameObject knife;
+    private Animator knifeAnimator;
     public GameObject damageHitBox;
     float prevMagnitude;
     private bool playerMoving;
@@ -23,6 +24,17 @@ public class PlayerController : MonoBehaviour
     {
         protagonist = gameObject.GetComponent<Rigidbody2D>();
         sound = GetComponent<AudioSource>();
+        knifeAnimator = knife.GetComponent<Animator>();
+}
+
+    IEnumerator Attack()
+    {
+        damageHitBox.SetActive(true);
+        knifeAnimator.SetTrigger("isAttacking");
+        yield return new WaitForSeconds(1.0f);
+        Debug.Log("Working");
+        damageHitBox.SetActive(false);
+        knifeAnimator.ResetTrigger("isAttacking");
     }
 
     // Update is called once per frame
@@ -37,24 +49,30 @@ public class PlayerController : MonoBehaviour
             knife.transform.up = protagonist.velocity.normalized;
         }
 
-        if (Input.GetAxis("Horizontal") > 0.7)
+        if (Input.GetKeyDown("space"))
         {
-            knifeHori = 0.5f;
+            Debug.Log("SPACE");
+            StartCoroutine(Attack());
         }
 
-        if (Input.GetAxis("Horizontal") < -0.7)
+        if (Input.GetAxis("Horizontal") > 0.35)
         {
-            knifeHori = -0.5f;
+            knifeHori = 0.35f;
         }
 
-        if (Input.GetAxis("Vertical") > 0.7)
+        if (Input.GetAxis("Horizontal") < -0.35)
         {
-            knifeVert = 0.5f;
+            knifeHori = -0.35f;
         }
 
-        if (Input.GetAxis("Vertical") < -0.7)
+        if (Input.GetAxis("Vertical") > 0.35)
         {
-            knifeVert = -0.5f;
+            knifeVert = 0.35f;
+        }
+
+        if (Input.GetAxis("Vertical") < -0.35)
+        {
+            knifeVert = -0.35f;
         }
 
         Vector2 movement = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));

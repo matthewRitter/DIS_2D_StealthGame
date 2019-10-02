@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 2137867330325218885}
   - component: {fileID: 2137867330325218907}
   - component: {fileID: 2137867330325218908}
+  - component: {fileID: -6757826941258933448}
   m_Layer: 8
   m_Name: WaypointBoi
   m_TagString: Enemy
@@ -259,3 +260,21 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
+--- !u!114 &-6757826941258933448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2137867330325218884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bab71949dbf4036418d249665dc9bd08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poofPrefab: {fileID: 4708722353914459623, guid: eb9c318d63ed2f04bacb7f94fe65dd10,
+    type: 3}
+  bloodPrefab: {fileID: 5955539211737578694, guid: bfa566578cb1e7a4f894b2f2b05ecc60,
+    type: 3}
+  poofQuantity: 7
+  radius: 1

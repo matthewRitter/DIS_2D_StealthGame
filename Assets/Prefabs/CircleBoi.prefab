@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: -3071315814496460995}
   - component: {fileID: -7603212474241353074}
   - component: {fileID: 7435809004477375130}
+  - component: {fileID: -971309276157280399}
   m_Layer: 0
   m_Name: CircleBoi
   m_TagString: Enemy
@@ -74,7 +75,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: 9132767464408585256, guid: bd6f218d08257c34aaf75779829da0cf,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -187,8 +188,10 @@ MonoBehaviour:
   rayRenderer: {fileID: 5173368733379267076, guid: 3b3bd2d5be2284d4faceaa72348a0bb2,
     type: 3}
   rayRenderDensity: 3
-  renderLight: 1
   trackingFrameCount: 1
+  alpha: 0.01
+  renderLight: 1
+  cameraObj: {fileID: 0}
 --- !u!120 &7435809004477375130
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -285,3 +288,19 @@ LineRenderer:
     generateLightingData: 0
   m_UseWorldSpace: 1
   m_Loop: 0
+--- !u!114 &-971309276157280399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7779449245347438240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bab71949dbf4036418d249665dc9bd08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poofPrefab: {fileID: 4708722353914459623, guid: eb9c318d63ed2f04bacb7f94fe65dd10,
+    type: 3}
+  poofQuantity: 7
+  radius: 1

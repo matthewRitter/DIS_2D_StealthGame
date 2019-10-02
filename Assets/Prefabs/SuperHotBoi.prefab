@@ -13,9 +13,10 @@ GameObject:
   - component: {fileID: 2468065753815945438}
   - component: {fileID: 2468065753815945437}
   - component: {fileID: 2468065753815945442}
+  - component: {fileID: 675414310444809487}
   m_Layer: 0
   m_Name: SuperHotBoi
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -145,3 +146,21 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.7604537, y: 0.74956465}
   m_EdgeRadius: 0
+--- !u!114 &675414310444809487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2468065753815945433}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bab71949dbf4036418d249665dc9bd08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poofPrefab: {fileID: 4708722353914459623, guid: eb9c318d63ed2f04bacb7f94fe65dd10,
+    type: 3}
+  bloodPrefab: {fileID: 5955539211737578694, guid: bfa566578cb1e7a4f894b2f2b05ecc60,
+    type: 3}
+  poofQuantity: 7
+  radius: 1
