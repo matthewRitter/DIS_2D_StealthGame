@@ -11,7 +11,7 @@ public class CreateLightRays : MonoBehaviour
     public int rayRenderDensity;
     public float alpha = 0.01f;
     public Color color = Color.white;
-    public float lightWidth = 0.20f;
+    public float lightWidth = 0.25f;
 
 
     private LineRenderer viewLineRenderer;
@@ -67,7 +67,7 @@ public class CreateLightRays : MonoBehaviour
                 
             }
 
-            if (count % rayRenderDensity*2 == 0)
+            if (count % rayRenderDensity*(lightWidth*10) == 0)
             {
                 GameObject rayRendererObject = Instantiate(rayRenderer, transform);
                 rayRendererObject.transform.SetParent(transform);
