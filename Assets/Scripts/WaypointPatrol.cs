@@ -104,7 +104,7 @@ public class WaypointPatrol : MonoBehaviour
 
         wasAlerted = true;
 
-        if (playingStealthMusic = true)
+        if (playingStealthMusic == true)
         {
             stealthMusic.Pause();
 
@@ -140,8 +140,10 @@ public class WaypointPatrol : MonoBehaviour
         if (playingFoundMusic == true && alerted == false)
         {
 
-            foundMusicOne.Pause();
-            foundMusicTwo.Pause();
+            //foundMusicOne.Pause();
+            //foundMusicTwo.Pause();
+            StartCoroutine(FadeOut(foundMusicOne, 2.0f));
+            StartCoroutine(FadeOut(foundMusicTwo, 2.0f));
 
             if (playingStealthMusic == false)
             {
@@ -155,6 +157,22 @@ public class WaypointPatrol : MonoBehaviour
 
 
 
+    }
+
+    //taken from https://forum.unity.com/threads/fade-out-audio-source.335031/
+    public static IEnumerator FadeOut(AudioSource audioSource, float FadeTime)
+    {
+        float startVolume = audioSource.volume;
+
+        while (audioSource.volume > 0)
+        {
+            audioSource.volume -= startVolume * Time.deltaTime / FadeTime;
+
+            yield return null;
+        }
+
+        audioSource.Stop();
+        audioSource.volume = startVolume;
     }
 
     public void SetAlertState(bool alertState)
