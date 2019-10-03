@@ -66,7 +66,7 @@ public class CreateLightRays : MonoBehaviour
                 
             }
 
-            if (count % rayRenderDensity == 0)
+            if (count % rayRenderDensity*2 == 0)
             {
                 GameObject rayRendererObject = Instantiate(rayRenderer, transform);
                 rayRendererObject.transform.SetParent(transform);
@@ -74,8 +74,8 @@ public class CreateLightRays : MonoBehaviour
 
 
                 LineRenderer templine = rayRendererObject.GetComponent<LineRenderer>();
-                templine.startWidth = 0.10f * rayRenderDensity;
-                templine.endWidth = 0.10f * rayRenderDensity;
+                templine.startWidth = 0.20f * rayRenderDensity;
+                templine.endWidth = 0.20f * rayRenderDensity;
                 templine.SetPosition(0, transform.position);
 
                 if (hit.collider != null)

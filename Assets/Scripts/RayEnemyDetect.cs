@@ -93,7 +93,7 @@ public class RayEnemyDetect : MonoBehaviour
                 }
             }
 
-            if (count % rayRenderDensity == 0 && renderLight)
+            if (count % rayRenderDensity*2 == 0 && renderLight)
             {
                 GameObject rayRendererObject = Instantiate(rayRenderer, transform);
                 rayRendererObject.transform.SetParent(transform);
@@ -101,8 +101,8 @@ public class RayEnemyDetect : MonoBehaviour
 
 
                 LineRenderer templine = rayRendererObject.GetComponent<LineRenderer>();
-                templine.startWidth = 0.10f * rayRenderDensity;
-                templine.endWidth = 0.10f * rayRenderDensity;
+                templine.startWidth = 0.20f * rayRenderDensity;
+                templine.endWidth = 0.20f * rayRenderDensity;
                 templine.SetPosition(0, transform.position);
 
 

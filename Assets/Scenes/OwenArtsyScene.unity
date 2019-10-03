@@ -476,6 +476,11 @@ PrefabInstance:
       propertyPath: rayCount
       value: 400
       objectReference: {fileID: 0}
+    - target: {fileID: 2137867330325218907, guid: 67d196f724b08f34eb409139aa5653f7,
+        type: 3}
+      propertyPath: alpha
+      value: 0.005
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 67d196f724b08f34eb409139aa5653f7, type: 3}
 --- !u!1 &814437041
@@ -771,7 +776,12 @@ PrefabInstance:
     - target: {fileID: 808491721111749086, guid: 7479e560032214b47937372be08d1ce2,
         type: 3}
       propertyPath: rayCount
-      value: 1500
+      value: 1000
+      objectReference: {fileID: 0}
+    - target: {fileID: 808491721111749086, guid: 7479e560032214b47937372be08d1ce2,
+        type: 3}
+      propertyPath: rayRenderDensity
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7479e560032214b47937372be08d1ce2, type: 3}
@@ -941,6 +951,11 @@ PrefabInstance:
       propertyPath: cameraObj
       value: 
       objectReference: {fileID: 215678663}
+    - target: {fileID: 2137867330325218907, guid: 67d196f724b08f34eb409139aa5653f7,
+        type: 3}
+      propertyPath: rayRenderDensity
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 67d196f724b08f34eb409139aa5653f7, type: 3}
 --- !u!1001 &1873878679
@@ -2288,7 +2303,7 @@ PrefabInstance:
     - target: {fileID: 808491721111749086, guid: 7479e560032214b47937372be08d1ce2,
         type: 3}
       propertyPath: rayCount
-      value: 1500
+      value: 1000
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7479e560032214b47937372be08d1ce2, type: 3}
