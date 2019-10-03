@@ -111,6 +111,20 @@ public class RayEnemyDetect : MonoBehaviour
                     }
               
                 }
+                else
+                {
+                    if (circlePatrolScript != null)
+                    {
+                        circlePatrolScript.setAlertState(false);
+                    }
+                }
+            }
+            else
+            {
+                if (circlePatrolScript != null)
+                {
+                    circlePatrolScript.setAlertState(false);
+                }
             }
 
             if (count % rayRenderDensity*(lightWidth*10) == 0 && renderLight)
