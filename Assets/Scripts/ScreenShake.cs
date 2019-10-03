@@ -29,27 +29,17 @@ public class ScreenShake : MonoBehaviour
         if (duration > 0)
         {
             smoother.SetShaking(true);
-            //transform.position = initialPosition + Random.insideUnitSphere * magnitude;
 
             Vector3 shakeAmt = Random.insideUnitSphere * magnitude;
 
-            Vector3 target = new Vector3(player.transform.position.x, player.transform.position.y, -10);
+            Vector3 target = new Vector3(player.transform.position.x + shakeAmt.x, player.transform.position.y + shakeAmt.y, -10);
 
-            if (!(transform.position.x <= target.x+1 && transform.position.x >= target.x-1) && (transform.position.y <= target.y + 1 && transform.position.y >= target.y - 1))
-            {
-                transform.position = Vector3.MoveTowards(transform.position, target, .05f * Time.deltaTime);
-            }
-            else
-            {
-                transform.position = new Vector3(player.transform.position.x + shakeAmt.x, player.transform.position.y + shakeAmt.y, -10);
+            transform.position = Vector3.MoveTowards(transform.position, target, 10f * Time.deltaTime);
 
-                duration -= Time.deltaTime * dampingSpeed;
-            }
+            duration -= Time.deltaTime * dampingSpeed;
         }
         else
         {
-            //duration = 0f;
-            //transform.position = initialPosition;
             smoother.SetShaking(false);
         }
 

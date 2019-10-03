@@ -17,7 +17,6 @@ public class SmoothCamera2D : MonoBehaviour
     {
         if (!beingShaken)
         {
-            //Vector3 newPosition = Target.position;
             Vector3 newPosition = new Vector3(Target.position.x, Target.position.y, -10);
 
 
