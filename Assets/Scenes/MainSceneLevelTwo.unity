@@ -6009,6 +6009,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 135
       objectReference: {fileID: 0}
+    - target: {fileID: 2468065753815945438, guid: 68a60dd12f450174bb6a27392a33c94f,
+        type: 3}
+      propertyPath: patrolSpeed
+      value: 10.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2468065753815945438, guid: 68a60dd12f450174bb6a27392a33c94f,
+        type: 3}
+      propertyPath: rayCount
+      value: 60
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 68a60dd12f450174bb6a27392a33c94f, type: 3}
 --- !u!4 &1236208985 stripped
