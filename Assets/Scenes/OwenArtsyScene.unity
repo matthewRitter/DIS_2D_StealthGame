@@ -667,7 +667,7 @@ PrefabInstance:
     - target: {fileID: 808491721111749086, guid: 7479e560032214b47937372be08d1ce2,
         type: 3}
       propertyPath: rayCount
-      value: 500
+      value: 1000
       objectReference: {fileID: 0}
     - target: {fileID: 808491721111749086, guid: 7479e560032214b47937372be08d1ce2,
         type: 3}
@@ -677,17 +677,17 @@ PrefabInstance:
     - target: {fileID: 808491721111749086, guid: 7479e560032214b47937372be08d1ce2,
         type: 3}
       propertyPath: color.r
-      value: 0.9433962
+      value: 0.20879209
       objectReference: {fileID: 0}
     - target: {fileID: 808491721111749086, guid: 7479e560032214b47937372be08d1ce2,
         type: 3}
       propertyPath: color.g
-      value: 0.9341927
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 808491721111749086, guid: 7479e560032214b47937372be08d1ce2,
         type: 3}
       propertyPath: color.b
-      value: 0.057849795
+      value: 0.033018887
       objectReference: {fileID: 0}
     - target: {fileID: 808491721111749086, guid: 7479e560032214b47937372be08d1ce2,
         type: 3}
