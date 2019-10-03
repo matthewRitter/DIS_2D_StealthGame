@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class superHotBoi : MonoBehaviour
 {
@@ -40,27 +42,41 @@ public class superHotBoi : MonoBehaviour
 
                 if ((playerPosition.y > gameObject.transform.position.y) && (canMoveUp()))
                 {
-                    movement.y = patrolSpeed;
+                    //movement.y = patrolSpeed;
+                    MoveTowards();
+
                 }
                 else if ((playerPosition.y < gameObject.transform.position.y) && (canMoveDown()))
                 {
-                    movement.y = -patrolSpeed;
+                    //movement.y = -patrolSpeed;
+                    MoveTowards();
+
                 }
 
                 if (playerPosition.x > gameObject.transform.position.x)
                 {
-                    movement.x = patrolSpeed;
+                    //movement.x = patrolSpeed;
+                    MoveTowards();
+
                 }
                 else if (playerPosition.x < gameObject.transform.position.x)
                 {
-                    movement.x = -patrolSpeed;
+                    //movement.x = -patrolSpeed;
+                    MoveTowards();
                 }
 
                 rb2d.velocity = movement;
-                transform.right = rb2d.velocity.normalized;
             }
         }
         
+    }
+
+    private void MoveTowards()
+    {
+        var step = patrolSpeed * Time.deltaTime;
+        transform.position = Vector3.MoveTowards(transform.position, playerPosition, step);
+
+        transform.right = (Vector3)playerPosition - transform.position;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -69,6 +85,7 @@ public class superHotBoi : MonoBehaviour
         {
             //playerPosition = collision.transform.position;
             print("kill Player");
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
 
