@@ -687,11 +687,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 295709816830254330, guid: e6ef0ee18b0f4124cb091ddb7beadd7d,
-        type: 3}
-      propertyPath: AlertRadius
-      value: 10
-      objectReference: {fileID: 0}
     - target: {fileID: 7779449245347438240, guid: e6ef0ee18b0f4124cb091ddb7beadd7d,
         type: 3}
       propertyPath: m_Name
@@ -772,6 +767,16 @@ PrefabInstance:
       propertyPath: Animator
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 295709816830254330, guid: e6ef0ee18b0f4124cb091ddb7beadd7d,
+        type: 3}
+      propertyPath: AlertRadius
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 295709816830254330, guid: e6ef0ee18b0f4124cb091ddb7beadd7d,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 1191580074}
     - target: {fileID: 7779449245347438254, guid: e6ef0ee18b0f4124cb091ddb7beadd7d,
         type: 3}
       propertyPath: m_Sprite

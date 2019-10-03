@@ -132,7 +132,7 @@ GameObject:
   - component: {fileID: 182330908}
   - component: {fileID: 182330907}
   - component: {fileID: 182330906}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: Collidable
   m_TagString: wall
   m_Icon: {fileID: 0}
