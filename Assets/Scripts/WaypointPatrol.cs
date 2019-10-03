@@ -137,11 +137,6 @@ public class WaypointPatrol : MonoBehaviour
 
         if (curpointidx > lastpointidx)
             curpointidx = 0;
-
-        
-
-
-
     }
 
     //taken from https://forum.unity.com/threads/fade-out-audio-source.335031/
@@ -193,7 +188,8 @@ public class WaypointPatrol : MonoBehaviour
         {
             if (playingStealthMusic == false)
             {
-                stealthMusic.PlayScheduled(8.0);
+                stealthMusic.time = 5.0f;
+                stealthMusic.Play();
                 Debug.Log("ok");
             }
             StartCoroutine(FadeOut(foundMusicOne, fadeTime));
