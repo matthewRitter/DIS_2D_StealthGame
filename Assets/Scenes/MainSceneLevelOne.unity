@@ -1684,6 +1684,11 @@ PrefabInstance:
       propertyPath: audioFoundTwo
       value: 
       objectReference: {fileID: 1774198540}
+    - target: {fileID: 2137867330325218885, guid: 67d196f724b08f34eb409139aa5653f7,
+        type: 3}
+      propertyPath: fadeTime
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 2137867330325218907, guid: 67d196f724b08f34eb409139aa5653f7,
         type: 3}
       propertyPath: cameraObj

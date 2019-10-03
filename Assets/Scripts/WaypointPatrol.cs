@@ -15,6 +15,7 @@ public class WaypointPatrol : MonoBehaviour
     public GameObject audioStealth;
     public GameObject audioFoundOne;
     public GameObject audioFoundTwo;
+    public float fadeTime = 0.0f;
     AudioSource stealthMusic;
     AudioSource foundMusicOne;
     AudioSource foundMusicTwo;
@@ -106,7 +107,7 @@ public class WaypointPatrol : MonoBehaviour
 
         if (playingStealthMusic == true)
         {
-            stealthMusic.Pause();
+            stealthMusic.Stop();
 
             if(playingFoundMusic == false)
             {
@@ -137,23 +138,7 @@ public class WaypointPatrol : MonoBehaviour
         if (curpointidx > lastpointidx)
             curpointidx = 0;
 
-        if (playingFoundMusic == true && alerted == false)
-        {
-
-            //foundMusicOne.Pause();
-            //foundMusicTwo.Pause();
-            StartCoroutine(FadeOut(foundMusicOne, 2.0f));
-            StartCoroutine(FadeOut(foundMusicTwo, 2.0f));
-
-            if (playingStealthMusic == false)
-            {
-                stealthMusic.Play();
-                Debug.Log("ok");
-            } 
-            
-            playingFoundMusic = false;
-            playingStealthMusic = true;
-        }
+        
 
 
 
@@ -204,6 +189,22 @@ public class WaypointPatrol : MonoBehaviour
 
     IEnumerator LookAround()
     {
+        if (playingFoundMusic == true && alerted == false)
+        {
+            if (playingStealthMusic == false)
+            {
+                stealthMusic.PlayScheduled(8.0);
+                Debug.Log("ok");
+            }
+            StartCoroutine(FadeOut(foundMusicOne, fadeTime));
+            StartCoroutine(FadeOut(foundMusicTwo, fadeTime));
+
+            
+
+            playingFoundMusic = false;
+            playingStealthMusic = true;
+        }
+
         wasAlerted = false;
         lookingAround = true;
 
@@ -222,6 +223,8 @@ public class WaypointPatrol : MonoBehaviour
         detectScript.SetActivityState(true);
 
         lookingAround = false;
+
+        
 
 
     }
