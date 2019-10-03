@@ -6,59 +6,53 @@ public class AlertNear : MonoBehaviour
 {
 
     public float AlertRadius;
+    public GameObject player;
 
-    private CircleCollider2D alertArea;
+
+    //private CircleCollider2D alertArea;
+
+    circleManPatrol circleManScript;
 
     // Start is called before the first frame update
     void Start()
     {
-        alertArea = gameObject.AddComponent<CircleCollider2D>();
-        alertArea.radius = AlertRadius;
-        alertArea.isTrigger = true;
+        circleManScript = GetComponent<circleManPatrol>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        
-    }
-
-    /*
-    private void OnTriggerStay2D(Collider2D collision)
-    {
-        print("Running stay");
-        if (collision.gameObject.tag == "Enemy")
+        bool alert = true;
+        if (circleManScript != null)
         {
-            if (collision.gameObject.GetComponent<WaypointPatrol>() != null)
-            {
-                collision.gameObject.GetComponent<WaypointPatrol>().SetAlertState(true);
-            }
+            alert = circleManScript.getAlertState();
+        }
+        if (alert)
+        {
+            StartCoroutine(createAlertRadius());   
         }
     }
-    */
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Enemy")
+        if (collision.tag == "Enemy")
         {
-            if (collision.gameObject.GetComponent<WaypointPatrol>() != null)
+            if (collision.GetComponent<WaypointPatrol>() != null)
             {
-                collision.gameObject.GetComponent<WaypointPatrol>().SetAlertState(true);
+                collision.GetComponent<WaypointPatrol>().SetAlertState(true);
+                collision.transform.right = player.transform.position - collision.transform.position;
             }
         }
     }
-    private void OnTriggerExit2D(Collider2D collision)
+
+    IEnumerator createAlertRadius()
     {
-        if (collision.gameObject.tag == "Enemy")
-        {
-            if (collision.gameObject.GetComponent<WaypointPatrol>() != null)
-            {
-                collision.gameObject.GetComponent<WaypointPatrol>().SetAlertState(true);
-            }
-        }
+        CircleCollider2D alertArea = gameObject.AddComponent<CircleCollider2D>();
+        alertArea = gameObject.AddComponent<CircleCollider2D>();
+        alertArea.radius = AlertRadius;
+        alertArea.isTrigger = true;
+        yield return new WaitForSeconds(2f);
+        Destroy(alertArea);
     }
-
-
-
 
 }
