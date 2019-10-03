@@ -672,7 +672,7 @@ PrefabInstance:
     - target: {fileID: 808491721111749086, guid: 7479e560032214b47937372be08d1ce2,
         type: 3}
       propertyPath: rayRenderDensity
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 808491721111749086, guid: 7479e560032214b47937372be08d1ce2,
         type: 3}
@@ -688,6 +688,11 @@ PrefabInstance:
         type: 3}
       propertyPath: color.b
       value: 0.057849795
+      objectReference: {fileID: 0}
+    - target: {fileID: 808491721111749086, guid: 7479e560032214b47937372be08d1ce2,
+        type: 3}
+      propertyPath: lightWidth
+      value: 0.25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7479e560032214b47937372be08d1ce2, type: 3}
