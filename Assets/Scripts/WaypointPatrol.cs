@@ -12,6 +12,12 @@ public class WaypointPatrol : MonoBehaviour
     public float chaseSpeed = 5;
     public float patrolSpeed = 1;
     public float lookAroundTime;
+    public GameObject audioStealth;
+    public GameObject audioFoundOne;
+    public GameObject audioFoundTwo;
+    AudioSource stealthMusic;
+    AudioSource foundMusicOne;
+    AudioSource foundMusicTwo;
 
     private int curpointidx;
     private int lastpointidx;
@@ -20,8 +26,12 @@ public class WaypointPatrol : MonoBehaviour
     private bool alerted;
     private bool wasAlerted;
     private bool lookingAround;
+    private bool playingFoundMusic;
+    private bool playingStealthMusic;
     private Vector2 playerPosition;
     private float speed;
+    
+    
 
     // Start is called before the first frame update
     void Start()
@@ -32,9 +42,15 @@ public class WaypointPatrol : MonoBehaviour
         alerted = false;
         wasAlerted = false;
         lookingAround = false;
+        playingFoundMusic = false;
+        playingStealthMusic = true;
         playerPosition = Vector2.zero;
         speed = patrolSpeed;
         detectScript = GetComponent<RayEnemyDetect>();
+
+        stealthMusic = audioStealth.gameObject.GetComponent<AudioSource>();
+        foundMusicOne = audioFoundOne.gameObject.GetComponent<AudioSource>();
+        foundMusicTwo = audioFoundTwo.gameObject.GetComponent<AudioSource>();
 
         // Safety check to make sure nothing is null, if something is then destroy gameobject
         foreach (var point in waypoints)
@@ -80,7 +96,6 @@ public class WaypointPatrol : MonoBehaviour
         //speed = detectScript.GetActivityState() ? chaseSpeed : 0;
         speed = chaseSpeed;
         chaseSpeed *= 1.01f;
-        print("PLAYER POSITION: " + playerPosition);
 
         var step = speed * Time.deltaTime;
         transform.position = Vector3.MoveTowards(transform.position, playerPosition, step);
@@ -88,6 +103,19 @@ public class WaypointPatrol : MonoBehaviour
         transform.right = (Vector3)playerPosition - transform.position;
 
         wasAlerted = true;
+
+        if (playingStealthMusic = true)
+        {
+            stealthMusic.Pause();
+
+            if(playingFoundMusic == false)
+            {
+                foundMusicOne.Play();
+                foundMusicTwo.Play();
+            }
+            playingFoundMusic = true;
+            playingStealthMusic = false;
+        }
     }
 
     // Moves this transform towards destination by step units
@@ -108,6 +136,24 @@ public class WaypointPatrol : MonoBehaviour
 
         if (curpointidx > lastpointidx)
             curpointidx = 0;
+
+        if (playingFoundMusic == true && alerted == false)
+        {
+
+            foundMusicOne.Pause();
+            foundMusicTwo.Pause();
+
+            if (playingStealthMusic == false)
+            {
+                stealthMusic.Play();
+                Debug.Log("ok");
+            } 
+            
+            playingFoundMusic = false;
+            playingStealthMusic = true;
+        }
+
+
 
     }
 
@@ -134,7 +180,6 @@ public class WaypointPatrol : MonoBehaviour
     {
         if(!lookingAround && collision.gameObject.tag == "Player")
         {
-            print("Player Hit!");
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
@@ -159,6 +204,7 @@ public class WaypointPatrol : MonoBehaviour
         detectScript.SetActivityState(true);
 
         lookingAround = false;
+
 
     }
 
