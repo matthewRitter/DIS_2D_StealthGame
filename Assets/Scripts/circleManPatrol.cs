@@ -23,6 +23,7 @@ public class circleManPatrol : MonoBehaviour
 
     private float lastX;
     private float lastY;
+    private bool alertState;
 
 
     private Vector2 prevPos;
@@ -35,6 +36,8 @@ public class circleManPatrol : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        alertState = false;
+
         prevPos = transform.position;
         origin = transform.position;
         originX = origin.x + circleRadius;
@@ -102,6 +105,15 @@ public class circleManPatrol : MonoBehaviour
         }
         */
 
+    }
+
+    public void setAlertState(bool alert)
+    {
+        alertState = alert;
+    }
+    public bool getAlertState()
+    {
+        return alertState;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

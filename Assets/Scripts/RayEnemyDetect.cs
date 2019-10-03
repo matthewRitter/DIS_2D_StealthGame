@@ -14,6 +14,7 @@ public class RayEnemyDetect : MonoBehaviour
     public float alpha = 0.01f;
     public bool renderLight = true;
     public GameObject cameraObj;
+    public float lightWidth = 0.25f;
 
     private LineRenderer viewLineRenderer;
     private List<RaycastHit2D> rays;
@@ -25,6 +26,10 @@ public class RayEnemyDetect : MonoBehaviour
     private int layerMask;
     private bool updatePlayerPos;
     private bool active;
+
+
+    private circleManPatrol circlePatrolScript;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -32,6 +37,9 @@ public class RayEnemyDetect : MonoBehaviour
         rayRenderersList = new List<GameObject>();
         patrolScript = GetComponent<WaypointPatrol>();
         screenShake = cameraObj.GetComponent<ScreenShake>();
+
+
+        circlePatrolScript = GetComponent<circleManPatrol>();
 
 
         viewLineRenderer = GetComponent<LineRenderer>();
@@ -80,20 +88,32 @@ public class RayEnemyDetect : MonoBehaviour
             {
                 if (hit.collider.tag == "Player")
                 {
-                    patrolScript.SetAlertState(true);
+                    if (patrolScript != null)
+                    {
+                        patrolScript.SetAlertState(true);
+                    }
+                    if (circlePatrolScript != null)
+                    {
+                        circlePatrolScript.setAlertState(true);
+                    }
                     float baseShakeMag = 1/((Vector3)hit.point - transform.position).magnitude;
-                    screenShake.Shake(0.2f, 0.3f*baseShakeMag, 1.0f);
-
+                    if (screenShake != null)
+                    {
+                        screenShake.Shake(0.2f, 0.3f * baseShakeMag, 1.0f);
+                    }
                     if (updatePlayerPos)
                     {
-                        patrolScript.SetPlayerPosition(hit.point);
+                        if (patrolScript != null)
+                        {
+                            patrolScript.SetPlayerPosition(hit.point);
+                        }
                         StartCoroutine(TrackingCooldown());
                     }
               
                 }
             }
 
-            if (count % rayRenderDensity*2 == 0 && renderLight)
+            if (count % rayRenderDensity*(lightWidth*10) == 0 && renderLight)
             {
                 GameObject rayRendererObject = Instantiate(rayRenderer, transform);
                 rayRendererObject.transform.SetParent(transform);
@@ -101,8 +121,8 @@ public class RayEnemyDetect : MonoBehaviour
 
 
                 LineRenderer templine = rayRendererObject.GetComponent<LineRenderer>();
-                templine.startWidth = 0.20f * rayRenderDensity;
-                templine.endWidth = 0.20f * rayRenderDensity;
+                templine.startWidth = lightWidth * rayRenderDensity;
+                templine.endWidth = lightWidth * rayRenderDensity;
                 templine.SetPosition(0, transform.position);
 
 

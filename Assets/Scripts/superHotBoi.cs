@@ -57,6 +57,7 @@ public class superHotBoi : MonoBehaviour
                 }
 
                 rb2d.velocity = movement;
+                transform.right = rb2d.velocity.normalized;
             }
         }
         

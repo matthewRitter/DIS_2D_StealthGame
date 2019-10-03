@@ -365,7 +365,7 @@ PrefabInstance:
     - target: {fileID: 2137867330325218907, guid: 67d196f724b08f34eb409139aa5653f7,
         type: 3}
       propertyPath: rayCount
-      value: 400
+      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 2137867330325218907, guid: 67d196f724b08f34eb409139aa5653f7,
         type: 3}
@@ -673,6 +673,26 @@ PrefabInstance:
         type: 3}
       propertyPath: rayRenderDensity
       value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 808491721111749086, guid: 7479e560032214b47937372be08d1ce2,
+        type: 3}
+      propertyPath: color.r
+      value: 0.20879209
+      objectReference: {fileID: 0}
+    - target: {fileID: 808491721111749086, guid: 7479e560032214b47937372be08d1ce2,
+        type: 3}
+      propertyPath: color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 808491721111749086, guid: 7479e560032214b47937372be08d1ce2,
+        type: 3}
+      propertyPath: color.b
+      value: 0.033018887
+      objectReference: {fileID: 0}
+    - target: {fileID: 808491721111749086, guid: 7479e560032214b47937372be08d1ce2,
+        type: 3}
+      propertyPath: lightWidth
+      value: 0.25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7479e560032214b47937372be08d1ce2, type: 3}
@@ -2292,7 +2312,7 @@ PrefabInstance:
     - target: {fileID: 808491721111749086, guid: 7479e560032214b47937372be08d1ce2,
         type: 3}
       propertyPath: rayCount
-      value: 1000
+      value: 500
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7479e560032214b47937372be08d1ce2, type: 3}

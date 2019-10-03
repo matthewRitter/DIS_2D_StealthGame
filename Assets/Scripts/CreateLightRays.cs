@@ -11,6 +11,7 @@ public class CreateLightRays : MonoBehaviour
     public int rayRenderDensity;
     public float alpha = 0.01f;
     public Color color = Color.white;
+    public float lightWidth = 0.25f;
 
 
     private LineRenderer viewLineRenderer;
@@ -66,7 +67,7 @@ public class CreateLightRays : MonoBehaviour
                 
             }
 
-            if (count % rayRenderDensity*2 == 0)
+            if (count % rayRenderDensity*(lightWidth*10) == 0)
             {
                 GameObject rayRendererObject = Instantiate(rayRenderer, transform);
                 rayRendererObject.transform.SetParent(transform);
@@ -74,8 +75,8 @@ public class CreateLightRays : MonoBehaviour
 
 
                 LineRenderer templine = rayRendererObject.GetComponent<LineRenderer>();
-                templine.startWidth = 0.20f * rayRenderDensity;
-                templine.endWidth = 0.20f * rayRenderDensity;
+                templine.startWidth = lightWidth * rayRenderDensity;
+                templine.endWidth = lightWidth * rayRenderDensity;
                 templine.SetPosition(0, transform.position);
 
                 if (hit.collider != null)
