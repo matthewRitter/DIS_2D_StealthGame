@@ -26,6 +26,10 @@ public class RayEnemyDetect : MonoBehaviour
     private int layerMask;
     private bool updatePlayerPos;
     private bool active;
+
+
+    private circleManPatrol circlePatrolScript;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -33,6 +37,9 @@ public class RayEnemyDetect : MonoBehaviour
         rayRenderersList = new List<GameObject>();
         patrolScript = GetComponent<WaypointPatrol>();
         screenShake = cameraObj.GetComponent<ScreenShake>();
+
+
+        circlePatrolScript = GetComponent<circleManPatrol>();
 
 
         viewLineRenderer = GetComponent<LineRenderer>();
@@ -84,6 +91,10 @@ public class RayEnemyDetect : MonoBehaviour
                     if (patrolScript != null)
                     {
                         patrolScript.SetAlertState(true);
+                    }
+                    if (circlePatrolScript != null)
+                    {
+                        circlePatrolScript.setAlertState(true);
                     }
                     float baseShakeMag = 1/((Vector3)hit.point - transform.position).magnitude;
                     if (screenShake != null)

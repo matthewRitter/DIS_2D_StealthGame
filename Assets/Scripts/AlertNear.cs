@@ -23,7 +23,7 @@ public class AlertNear : MonoBehaviour
         
     }
 
-
+    /*
     private void OnTriggerStay2D(Collider2D collision)
     {
         print("Running stay");
@@ -35,10 +35,20 @@ public class AlertNear : MonoBehaviour
             }
         }
     }
+    */
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        print("Running enter");
+        if (collision.gameObject.tag == "Enemy")
+        {
+            if (collision.gameObject.GetComponent<WaypointPatrol>() != null)
+            {
+                collision.gameObject.GetComponent<WaypointPatrol>().SetAlertState(true);
+            }
+        }
+    }
+    private void OnTriggerExit2D(Collider2D collision)
+    {
         if (collision.gameObject.tag == "Enemy")
         {
             if (collision.gameObject.GetComponent<WaypointPatrol>() != null)
@@ -48,7 +58,7 @@ public class AlertNear : MonoBehaviour
         }
     }
 
-   
+
 
 
 }
