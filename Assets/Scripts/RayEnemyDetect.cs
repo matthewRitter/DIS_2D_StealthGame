@@ -80,13 +80,21 @@ public class RayEnemyDetect : MonoBehaviour
             {
                 if (hit.collider.tag == "Player")
                 {
-                    patrolScript.SetAlertState(true);
+                    if (patrolScript != null)
+                    {
+                        patrolScript.SetAlertState(true);
+                    }
                     float baseShakeMag = 1/((Vector3)hit.point - transform.position).magnitude;
-                    screenShake.Shake(0.2f, 0.3f*baseShakeMag, 1.0f);
-
+                    if (screenShake != null)
+                    {
+                        screenShake.Shake(0.2f, 0.3f * baseShakeMag, 1.0f);
+                    }
                     if (updatePlayerPos)
                     {
-                        patrolScript.SetPlayerPosition(hit.point);
+                        if (patrolScript != null)
+                        {
+                            patrolScript.SetPlayerPosition(hit.point);
+                        }
                         StartCoroutine(TrackingCooldown());
                     }
               

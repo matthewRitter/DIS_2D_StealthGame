@@ -1,5 +1,49 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &6066852256927034942
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2864341464794600948}
+  - component: {fileID: 6575947686832451521}
+  m_Layer: 0
+  m_Name: AlertCollider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2864341464794600948
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6066852256927034942}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 7779449245347438255}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6575947686832451521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6066852256927034942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2c07a148bfb3834587cc8328aa4257b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AlertRadius: 0
 --- !u!1 &7779449245347438240
 GameObject:
   m_ObjectHideFlags: 0
@@ -13,10 +57,10 @@ GameObject:
   - component: {fileID: 7779449245347438241}
   - component: {fileID: 7779449245347438252}
   - component: {fileID: 7779449245347438253}
-  - component: {fileID: -3071315814496460995}
   - component: {fileID: -7603212474241353074}
   - component: {fileID: 7435809004477375130}
   - component: {fileID: -971309276157280399}
+  - component: {fileID: 295709816830254330}
   m_Layer: 0
   m_Name: CircleBoi
   m_TagString: Enemy
@@ -34,7 +78,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 2, y: 1.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 2864341464794600948}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -76,7 +121,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 9132767464408585256, guid: bd6f218d08257c34aaf75779829da0cf,
+  m_Sprite: {fileID: 3386380435372688315, guid: bd6f218d08257c34aaf75779829da0cf,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -103,7 +148,6 @@ MonoBehaviour:
   circleRadius: 1.5
   patrolSpeed: 1
   clockwise: 1
-  Animator: {fileID: 0}
 --- !u!50 &7779449245347438252
 Rigidbody2D:
   serializedVersion: 4
@@ -151,25 +195,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!95 &-3071315814496460995
-Animator:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7779449245347438240}
-  m_Enabled: 0
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 80bd7985c17f38b41a08863c3298563f, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &-7603212474241353074
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -305,3 +330,16 @@ MonoBehaviour:
   bloodPrefab: {fileID: 0}
   poofQuantity: 7
   radius: 1
+--- !u!114 &295709816830254330
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7779449245347438240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e2c07a148bfb3834587cc8328aa4257b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  AlertRadius: 5
