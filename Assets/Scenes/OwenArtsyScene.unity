@@ -783,6 +783,21 @@ PrefabInstance:
       propertyPath: cameraObj
       value: 
       objectReference: {fileID: 215678663}
+    - target: {fileID: 2137867330325218907, guid: 67d196f724b08f34eb409139aa5653f7,
+        type: 3}
+      propertyPath: color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2137867330325218907, guid: 67d196f724b08f34eb409139aa5653f7,
+        type: 3}
+      propertyPath: color.g
+      value: 0.04080534
+      objectReference: {fileID: 0}
+    - target: {fileID: 2137867330325218907, guid: 67d196f724b08f34eb409139aa5653f7,
+        type: 3}
+      propertyPath: color.b
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 67d196f724b08f34eb409139aa5653f7, type: 3}
 --- !u!1001 &1405870406
@@ -2322,25 +2337,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1873878679}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &808491719933789456 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1546757709243975288, guid: fb217058d6c3a9a43bb513197747228c,
-    type: 3}
-  m_PrefabInstance: {fileID: 2184097516460049256}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &808491719933789460
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 808491719933789456}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97b15527e36517044ba348a72fb6dfd6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  isEndPoint: 1
 --- !u!1001 &2184097516460049256
 PrefabInstance:
   m_ObjectHideFlags: 0

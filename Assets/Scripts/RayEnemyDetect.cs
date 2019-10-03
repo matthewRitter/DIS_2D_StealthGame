@@ -15,6 +15,8 @@ public class RayEnemyDetect : MonoBehaviour
     public bool renderLight = true;
     public GameObject cameraObj;
     public float lightWidth = 0.25f;
+    public Color color = Color.white;
+
 
     private LineRenderer viewLineRenderer;
     private List<RaycastHit2D> rays;
@@ -153,8 +155,8 @@ public class RayEnemyDetect : MonoBehaviour
                 }
 
                 Gradient grad = new Gradient();
-                grad.SetKeys(new GradientColorKey[] { new GradientColorKey(Color.white, 0.0f), new GradientColorKey(Color.white, 1.0f) },
-                             new GradientAlphaKey[] { new GradientAlphaKey(alpha, 0.0f) } );
+                grad.SetKeys(new GradientColorKey[] { new GradientColorKey(color, 0.0f) },
+                             new GradientAlphaKey[] { new GradientAlphaKey(alpha, 0.0f) });
 
                 templine.colorGradient = grad;
             }

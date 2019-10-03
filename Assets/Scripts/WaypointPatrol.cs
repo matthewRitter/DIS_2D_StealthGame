@@ -12,6 +12,13 @@ public class WaypointPatrol : MonoBehaviour
     public float chaseSpeed = 5;
     public float patrolSpeed = 1;
     public float lookAroundTime;
+    public GameObject audioStealth;
+    public GameObject audioFoundOne;
+    public GameObject audioFoundTwo;
+    public float fadeTime = 0.0f;
+    AudioSource stealthMusic;
+    AudioSource foundMusicOne;
+    AudioSource foundMusicTwo;
 
     private int curpointidx;
     private int lastpointidx;
@@ -20,8 +27,12 @@ public class WaypointPatrol : MonoBehaviour
     private bool alerted;
     private bool wasAlerted;
     private bool lookingAround;
+    private bool playingFoundMusic;
+    private bool playingStealthMusic;
     private Vector2 playerPosition;
     private float speed;
+    
+    
 
     // Start is called before the first frame update
     void Start()
@@ -32,9 +43,15 @@ public class WaypointPatrol : MonoBehaviour
         alerted = false;
         wasAlerted = false;
         lookingAround = false;
+        playingFoundMusic = false;
+        playingStealthMusic = true;
         playerPosition = Vector2.zero;
         speed = patrolSpeed;
         detectScript = GetComponent<RayEnemyDetect>();
+
+        stealthMusic = audioStealth.gameObject.GetComponent<AudioSource>();
+        foundMusicOne = audioFoundOne.gameObject.GetComponent<AudioSource>();
+        foundMusicTwo = audioFoundTwo.gameObject.GetComponent<AudioSource>();
 
         // Safety check to make sure nothing is null, if something is then destroy gameobject
         foreach (var point in waypoints)
@@ -80,7 +97,6 @@ public class WaypointPatrol : MonoBehaviour
         //speed = detectScript.GetActivityState() ? chaseSpeed : 0;
         speed = chaseSpeed;
         chaseSpeed *= 1.01f;
-        print("PLAYER POSITION: " + playerPosition);
 
         var step = speed * Time.deltaTime;
         transform.position = Vector3.MoveTowards(transform.position, playerPosition, step);
@@ -88,6 +104,19 @@ public class WaypointPatrol : MonoBehaviour
         transform.right = (Vector3)playerPosition - transform.position;
 
         wasAlerted = true;
+
+        if (playingStealthMusic == true)
+        {
+            stealthMusic.Stop();
+
+            if(playingFoundMusic == false)
+            {
+                foundMusicOne.Play();
+                foundMusicTwo.Play();
+            }
+            playingFoundMusic = true;
+            playingStealthMusic = false;
+        }
     }
 
     // Moves this transform towards destination by step units
@@ -109,6 +138,26 @@ public class WaypointPatrol : MonoBehaviour
         if (curpointidx > lastpointidx)
             curpointidx = 0;
 
+        
+
+
+
+    }
+
+    //taken from https://forum.unity.com/threads/fade-out-audio-source.335031/
+    public static IEnumerator FadeOut(AudioSource audioSource, float FadeTime)
+    {
+        float startVolume = audioSource.volume;
+
+        while (audioSource.volume > 0)
+        {
+            audioSource.volume -= startVolume * Time.deltaTime / FadeTime;
+
+            yield return null;
+        }
+
+        audioSource.Stop();
+        audioSource.volume = startVolume;
     }
 
     public void SetAlertState(bool alertState)
@@ -134,13 +183,28 @@ public class WaypointPatrol : MonoBehaviour
     {
         if(!lookingAround && collision.gameObject.tag == "Player")
         {
-            print("Player Hit!");
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
 
     IEnumerator LookAround()
     {
+        if (playingFoundMusic == true && alerted == false)
+        {
+            if (playingStealthMusic == false)
+            {
+                stealthMusic.PlayScheduled(8.0);
+                Debug.Log("ok");
+            }
+            StartCoroutine(FadeOut(foundMusicOne, fadeTime));
+            StartCoroutine(FadeOut(foundMusicTwo, fadeTime));
+
+            
+
+            playingFoundMusic = false;
+            playingStealthMusic = true;
+        }
+
         wasAlerted = false;
         lookingAround = true;
 
@@ -159,6 +223,9 @@ public class WaypointPatrol : MonoBehaviour
         detectScript.SetActivityState(true);
 
         lookingAround = false;
+
+        
+
 
     }
 
