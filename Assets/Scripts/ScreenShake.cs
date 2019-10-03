@@ -30,7 +30,7 @@ public class ScreenShake : MonoBehaviour
         {
             smoother.SetShaking(true);
 
-            Vector3 shakeAmt = Random.insideUnitSphere * magnitude*5;
+            Vector3 shakeAmt = Random.insideUnitSphere * magnitude*2;
 
             Vector3 target = new Vector3(player.transform.position.x + shakeAmt.x, player.transform.position.y + shakeAmt.y, -10);
 
