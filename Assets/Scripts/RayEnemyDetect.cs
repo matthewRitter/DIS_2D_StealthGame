@@ -16,6 +16,8 @@ public class RayEnemyDetect : MonoBehaviour
     public GameObject cameraObj;
     public float lightWidth = 0.25f;
     public Color color = Color.white;
+    public bool raveMode = false;
+    public float raveChangeTime = 0.25f;
 
 
     private LineRenderer viewLineRenderer;
@@ -28,6 +30,7 @@ public class RayEnemyDetect : MonoBehaviour
     private int layerMask;
     private bool updatePlayerPos;
     private bool active;
+    private bool raving;
 
 
     private circleManPatrol circlePatrolScript;
@@ -61,6 +64,7 @@ public class RayEnemyDetect : MonoBehaviour
         if (rayRenderDensity % 2 == 0)
             rayRenderDensity += 1;
 
+        raving = false;
     }
 
     // Update is called once per frame
@@ -154,6 +158,11 @@ public class RayEnemyDetect : MonoBehaviour
                     templine.SetPosition(1, renderVectors[count]);
                 }
 
+                if (raveMode && !raving)
+                {
+                    StartCoroutine(RaveMeUpBaby());
+                }
+
                 Gradient grad = new Gradient();
                 grad.SetKeys(new GradientColorKey[] { new GradientColorKey(color, 0.0f) },
                              new GradientAlphaKey[] { new GradientAlphaKey(alpha, 0.0f) });
@@ -223,6 +232,14 @@ public class RayEnemyDetect : MonoBehaviour
             yield return new WaitForEndOfFrame();
 
         updatePlayerPos = true;
+    }
+
+    IEnumerator RaveMeUpBaby()
+    {
+        raving = true;
+        color = new Color(Random.value, Random.value, Random.value);
+        yield return new WaitForSeconds(raveChangeTime);
+        raving = false;
     }
 
 

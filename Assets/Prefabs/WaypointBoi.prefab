@@ -142,6 +142,10 @@ MonoBehaviour:
   chaseSpeed: 2.5
   patrolSpeed: 1
   lookAroundTime: 2
+  audioStealth: {fileID: 0}
+  audioFoundOne: {fileID: 0}
+  audioFoundTwo: {fileID: 0}
+  fadeTime: 3.5
 --- !u!114 &2137867330325218907
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -164,6 +168,10 @@ MonoBehaviour:
   alpha: 0.01
   renderLight: 1
   cameraObj: {fileID: 0}
+  lightWidth: 0.25
+  color: {r: 1, g: 1, b: 1, a: 1}
+  raveMode: 0
+  raveChangeTime: 0.25
 --- !u!120 &2137867330325218908
 LineRenderer:
   m_ObjectHideFlags: 0

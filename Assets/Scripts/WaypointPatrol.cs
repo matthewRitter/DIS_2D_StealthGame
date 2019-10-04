@@ -27,7 +27,7 @@ public class WaypointPatrol : MonoBehaviour
     private bool alerted;
     private bool wasAlerted;
     private bool lookingAround;
-    private bool playingFoundMusic;
+    private static bool playingFoundMusic;
     private bool playingStealthMusic;
     private Vector2 playerPosition;
     private float speed;
@@ -184,13 +184,31 @@ public class WaypointPatrol : MonoBehaviour
 
     IEnumerator LookAround()
     {
-        if (playingFoundMusic == true && alerted == false)
+        List<GameObject> wayPointBois = new List<GameObject>();
+        foreach(GameObject obj in FindObjectsOfType(typeof (GameObject)))
+        {
+            if(obj.GetComponent<WaypointPatrol>() != null)
+            {
+                wayPointBois.Add(obj);
+            }
+        }
+
+        int otherAlerted = 0;
+        
+        foreach(GameObject obj in wayPointBois)
+        {
+            if (obj.GetComponent<WaypointPatrol>().GetAlertState() == true)
+            {
+                otherAlerted++;
+            }
+        }
+
+        if (playingFoundMusic == true && alerted == false && !(otherAlerted > 1))
         {
             if (playingStealthMusic == false)
             {
                 stealthMusic.time = 5.0f;
                 stealthMusic.Play();
-                Debug.Log("ok");
             }
             StartCoroutine(FadeOut(foundMusicOne, fadeTime));
             StartCoroutine(FadeOut(foundMusicTwo, fadeTime));
@@ -220,7 +238,7 @@ public class WaypointPatrol : MonoBehaviour
 
         lookingAround = false;
 
-        
+        otherAlerted = 0;
 
 
     }
