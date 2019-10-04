@@ -8,6 +8,7 @@ TagManager:
   - Wall
   - EnemyBoi
   - Enemy
+  - triggerAttackTip
   layers:
   - Default
   - TransparentFX
