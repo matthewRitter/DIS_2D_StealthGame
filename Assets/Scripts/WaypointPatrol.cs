@@ -238,13 +238,7 @@ public class WaypointPatrol : MonoBehaviour
 
         lookingAround = false;
 
-        otherAlerted = 0;
-
-
+        otherAlerted = 0;     
     }
-
-
-
-
 
 }
