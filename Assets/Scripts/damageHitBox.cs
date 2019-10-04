@@ -8,6 +8,7 @@ public class damageHitBox : MonoBehaviour
     {
         if (col.gameObject.tag == "Enemy")
         {
+            col.gameObject.GetComponent<poofOnDeath>().Poof();
             Destroy(col.gameObject);
         }
     }
