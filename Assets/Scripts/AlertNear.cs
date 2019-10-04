@@ -8,6 +8,8 @@ public class AlertNear : MonoBehaviour
     public float AlertRadius;
     public GameObject player;
 
+    private bool alertExists;
+
 
     //private CircleCollider2D alertArea;
 
@@ -16,6 +18,7 @@ public class AlertNear : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        alertExists = false;
         circleManScript = GetComponent<circleManPatrol>();
     }
 
@@ -47,12 +50,17 @@ public class AlertNear : MonoBehaviour
 
     IEnumerator createAlertRadius()
     {
-        CircleCollider2D alertArea = gameObject.AddComponent<CircleCollider2D>();
-        alertArea = gameObject.AddComponent<CircleCollider2D>();
-        alertArea.radius = AlertRadius;
-        alertArea.isTrigger = true;
-        yield return new WaitForSeconds(2f);
-        Destroy(alertArea);
+        if (!alertExists)
+        {
+            alertExists = true;
+            CircleCollider2D alertArea = gameObject.AddComponent<CircleCollider2D>();
+            alertArea = gameObject.AddComponent<CircleCollider2D>();
+            alertArea.radius = AlertRadius;
+            alertArea.isTrigger = true;
+            yield return new WaitForSeconds(1f);
+            Destroy(alertArea);
+            alertExists = false;
+        }
     }
 
 }

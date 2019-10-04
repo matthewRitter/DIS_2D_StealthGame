@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AlertRadius: 0
+  player: {fileID: 0}
 --- !u!1 &7779449245347438240
 GameObject:
   m_ObjectHideFlags: 0
@@ -54,13 +55,13 @@ GameObject:
   m_Component:
   - component: {fileID: 7779449245347438255}
   - component: {fileID: 7779449245347438254}
-  - component: {fileID: 7779449245347438241}
   - component: {fileID: 7779449245347438252}
   - component: {fileID: 7779449245347438253}
   - component: {fileID: -7603212474241353074}
   - component: {fileID: 7435809004477375130}
   - component: {fileID: -971309276157280399}
   - component: {fileID: 295709816830254330}
+  - component: {fileID: 292795868864384193}
   m_Layer: 0
   m_Name: CircleBoi
   m_TagString: Enemy
@@ -133,21 +134,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7779449245347438241
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7779449245347438240}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8875d491d3a12a74fb65b4b15e919390, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  circleRadius: 1.5
-  patrolSpeed: 1
-  clockwise: 1
 --- !u!50 &7779449245347438252
 Rigidbody2D:
   serializedVersion: 4
@@ -217,6 +203,8 @@ MonoBehaviour:
   alpha: 0.01
   renderLight: 1
   cameraObj: {fileID: 0}
+  lightWidth: 0.25
+  color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!120 &7435809004477375130
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -343,3 +331,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   AlertRadius: 5
+  player: {fileID: 0}
+--- !u!114 &292795868864384193
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7779449245347438240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b0889ca99c7aa064084ef2793dc704ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  circleRadius: 2
+  patrolSpeed: 1.5
+  clockwise: 0

@@ -28,6 +28,8 @@ public class circleManPatrol : MonoBehaviour
 
     private Vector2 prevPos;
 
+    private bool turning;
+
 
     Rigidbody2D rb;
     //BoxCollider2D collision;
@@ -36,6 +38,7 @@ public class circleManPatrol : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        turning = false;
         alertState = false;
 
         prevPos = transform.position;
@@ -120,8 +123,23 @@ public class circleManPatrol : MonoBehaviour
     {
         if (collision.gameObject.tag == "wall")
         {
-            patrolSpeed = -patrolSpeed;
-            clockwise = !clockwise;
+            StartCoroutine(turnAround());
         }
     }
+
+    IEnumerator turnAround()
+    {
+        if (!turning)
+        {
+            print("turning");
+            turning = true;
+            patrolSpeed = -patrolSpeed;
+            clockwise = !clockwise;
+            yield return new WaitForSeconds(2f);
+            turning = false;
+        }
+        
+    }
+
+
 }
