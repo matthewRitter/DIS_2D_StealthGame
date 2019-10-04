@@ -95,13 +95,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   viewAngle: 180
-  rayCount: 2000
+  rayCount: 500
   lookDistance: 30
   rayRenderer: {fileID: 5173368733379267076, guid: 3b3bd2d5be2284d4faceaa72348a0bb2,
     type: 3}
   rayRenderDensity: 3
   alpha: 0.005
   color: {r: 1, g: 1, b: 1, a: 0}
+  lightWidth: 0.25
+  raveMode: 0
+  raveChangeTime: 0.25
 --- !u!120 &808491721111749059
 LineRenderer:
   m_ObjectHideFlags: 0

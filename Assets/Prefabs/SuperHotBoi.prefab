@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 2468065753815945436}
   - component: {fileID: 2468065753815945439}
   - component: {fileID: 2468065753815945438}
-  - component: {fileID: 2468065753815945437}
   - component: {fileID: 2468065753815945442}
   - component: {fileID: 675414310444809487}
+  - component: {fileID: -5232349493321653251}
   m_Layer: 0
   m_Name: SuperHotBoi
   m_TagString: Enemy
@@ -100,27 +100,6 @@ MonoBehaviour:
   patrolSpeed: 5
   rayCount: 30
   lookDistance: 20
---- !u!50 &2468065753815945437
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2468065753815945433}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!61 &2468065753815945442
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -165,3 +144,24 @@ MonoBehaviour:
     type: 3}
   poofQuantity: 7
   radius: 1
+--- !u!50 &-5232349493321653251
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2468065753815945433}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

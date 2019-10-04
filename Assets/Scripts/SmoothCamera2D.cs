@@ -8,6 +8,7 @@ public class SmoothCamera2D : MonoBehaviour
 {
     public float FollowSpeed = 2f;
     public Transform Target;
+    public float textFadeSpeed = 3.0f;
 
 
     private GameObject thingToFade;
@@ -60,7 +61,7 @@ public class SmoothCamera2D : MonoBehaviour
 
     IEnumerator fadeWASD()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(textFadeSpeed);
         fading = true;
     }
 
