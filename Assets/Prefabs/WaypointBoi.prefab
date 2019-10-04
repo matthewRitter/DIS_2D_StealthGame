@@ -75,9 +75,9 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 3386380435372688315, guid: bd6f218d08257c34aaf75779829da0cf,
+  m_Sprite: {fileID: 3844687884088983182, guid: bd6f218d08257c34aaf75779829da0cf,
     type: 3}
-  m_Color: {r: 0.9622642, g: 0.33113116, b: 0, a: 1}
+  m_Color: {r: 1, g: 0.70052946, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -142,6 +142,10 @@ MonoBehaviour:
   chaseSpeed: 2.5
   patrolSpeed: 1
   lookAroundTime: 2
+  audioStealth: {fileID: 0}
+  audioFoundOne: {fileID: 0}
+  audioFoundTwo: {fileID: 0}
+  fadeTime: 3.5
 --- !u!114 &2137867330325218907
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -155,7 +159,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   viewAngle: 15
-  rayCount: 300
+  rayCount: 200
   lookDistance: 30
   rayRenderer: {fileID: 5173368733379267076, guid: 3b3bd2d5be2284d4faceaa72348a0bb2,
     type: 3}
@@ -164,6 +168,10 @@ MonoBehaviour:
   alpha: 0.01
   renderLight: 1
   cameraObj: {fileID: 0}
+  lightWidth: 0.25
+  color: {r: 1, g: 1, b: 1, a: 1}
+  raveMode: 0
+  raveChangeTime: 0.25
 --- !u!120 &2137867330325218908
 LineRenderer:
   m_ObjectHideFlags: 0

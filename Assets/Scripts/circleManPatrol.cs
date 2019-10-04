@@ -28,6 +28,8 @@ public class circleManPatrol : MonoBehaviour
 
     private Vector2 prevPos;
 
+    private bool turning;
+
 
     Rigidbody2D rb;
     //BoxCollider2D collision;
@@ -36,6 +38,7 @@ public class circleManPatrol : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        turning = false;
         alertState = false;
 
         prevPos = transform.position;
@@ -64,46 +67,36 @@ public class circleManPatrol : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-  
 
-        if (Time.deltaTime != 0)
+        if (!PauseMenu.GameIsPaused)
         {
-            timeCounter += Time.deltaTime * patrolSpeed; 
+            if (Time.deltaTime != 0)
+            {
+                timeCounter += Time.deltaTime * patrolSpeed;
+            }
+            else
+            {
+                timeCounter += patrolSpeed;
+            }
+            float x = -Mathf.Cos(timeCounter) * circleRadius + originX;
+            float y = -Mathf.Sin(timeCounter) * circleRadius + originY;
+
+
+
+
+
+            transform.position = new Vector2(x, y);
+
+            transform.right = (Vector2)transform.position - prevPos;
+
+
+
+            float cos = -Mathf.Cos(timeCounter);
+            float sin = -Mathf.Sin(timeCounter);
+
+            prevPos = transform.position;
+
         }
-        else
-        {
-            timeCounter += patrolSpeed;
-        }
-        float x = -Mathf.Cos(timeCounter) * circleRadius + originX;
-        float y = -Mathf.Sin(timeCounter) * circleRadius + originY;
-
-
-
-
-
-        transform.position = new Vector2(x, y);
-
-        transform.right = (Vector2)transform.position - prevPos;
-        
-
-
-        float cos = -Mathf.Cos(timeCounter);
-        float sin = -Mathf.Sin(timeCounter);
-
-        prevPos = transform.position;
-
-        /*
-        if (clockwise)
-        {
-            Animator.SetFloat("Horizontal", cos);
-            Animator.SetFloat("Vertical", sin);
-        }
-        else
-        {
-            Animator.SetFloat("Horizontal", -cos);
-            Animator.SetFloat("Vertical", -sin);
-        }
-        */
 
     }
 
@@ -120,8 +113,23 @@ public class circleManPatrol : MonoBehaviour
     {
         if (collision.gameObject.tag == "wall")
         {
-            patrolSpeed = -patrolSpeed;
-            clockwise = !clockwise;
+            StartCoroutine(turnAround());
         }
     }
+
+    IEnumerator turnAround()
+    {
+        if (!turning)
+        {
+            print("turning");
+            turning = true;
+            patrolSpeed = -patrolSpeed;
+            clockwise = !clockwise;
+            yield return new WaitForSeconds(2f);
+            turning = false;
+        }
+        
+    }
+
+
 }
