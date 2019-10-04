@@ -12,6 +12,8 @@ public class CreateLightRays : MonoBehaviour
     public float alpha = 0.01f;
     public Color color = Color.white;
     public float lightWidth = 0.25f;
+    public bool raveMode = false;
+    public float raveChangeTime = 0.25f;
 
 
     private LineRenderer viewLineRenderer;
@@ -20,6 +22,7 @@ public class CreateLightRays : MonoBehaviour
     private float minViewAngle;
     private float maxViewAngle;
     private int layerMask;
+    bool raving;
     // Start is called before the first frame update
     void Start()
     {
@@ -39,6 +42,8 @@ public class CreateLightRays : MonoBehaviour
 
         if (rayRenderDensity % 2 == 0)
             rayRenderDensity += 1;
+
+        raving = false;
 
     }
 
@@ -87,6 +92,11 @@ public class CreateLightRays : MonoBehaviour
                 else
                 {
                     templine.SetPosition(1, renderVectors[count]);
+                }
+
+                if (raveMode && !raving)
+                {
+                    StartCoroutine(RaveMeUpBaby());
                 }
 
                 Gradient grad = new Gradient();
@@ -141,6 +151,15 @@ public class CreateLightRays : MonoBehaviour
 
         return renderVectors;
 
+    }
+
+
+    IEnumerator RaveMeUpBaby()
+    {
+        raving = true;
+        color = new Color(Random.value, Random.value, Random.value);
+        yield return new WaitForSeconds(raveChangeTime);
+        raving = false;
     }
 
 }
