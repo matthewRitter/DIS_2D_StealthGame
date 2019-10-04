@@ -67,46 +67,36 @@ public class circleManPatrol : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-  
 
-        if (Time.deltaTime != 0)
+        if (!PauseMenu.GameIsPaused)
         {
-            timeCounter += Time.deltaTime * patrolSpeed; 
+            if (Time.deltaTime != 0)
+            {
+                timeCounter += Time.deltaTime * patrolSpeed;
+            }
+            else
+            {
+                timeCounter += patrolSpeed;
+            }
+            float x = -Mathf.Cos(timeCounter) * circleRadius + originX;
+            float y = -Mathf.Sin(timeCounter) * circleRadius + originY;
+
+
+
+
+
+            transform.position = new Vector2(x, y);
+
+            transform.right = (Vector2)transform.position - prevPos;
+
+
+
+            float cos = -Mathf.Cos(timeCounter);
+            float sin = -Mathf.Sin(timeCounter);
+
+            prevPos = transform.position;
+
         }
-        else
-        {
-            timeCounter += patrolSpeed;
-        }
-        float x = -Mathf.Cos(timeCounter) * circleRadius + originX;
-        float y = -Mathf.Sin(timeCounter) * circleRadius + originY;
-
-
-
-
-
-        transform.position = new Vector2(x, y);
-
-        transform.right = (Vector2)transform.position - prevPos;
-        
-
-
-        float cos = -Mathf.Cos(timeCounter);
-        float sin = -Mathf.Sin(timeCounter);
-
-        prevPos = transform.position;
-
-        /*
-        if (clockwise)
-        {
-            Animator.SetFloat("Horizontal", cos);
-            Animator.SetFloat("Vertical", sin);
-        }
-        else
-        {
-            Animator.SetFloat("Horizontal", -cos);
-            Animator.SetFloat("Vertical", -sin);
-        }
-        */
 
     }
 
