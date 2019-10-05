@@ -19,7 +19,6 @@ public class PlayerController : MonoBehaviour
     public GameObject damageHitBox;
     private bool wait;
     float prevMagnitude;
-    private bool playerMoving;
     private Vector2 lastMove;
     public float knifeRadius;
     public GameObject gunItem;
@@ -73,7 +72,7 @@ public class PlayerController : MonoBehaviour
     float knifeVert;
     void FixedUpdate()
     {
-        playerMoving = false;
+        
         if (!knifeActive)
         {
             knife.SetActive(false);
