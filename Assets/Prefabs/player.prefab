@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 4259292800131428470}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 1}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4107868267590099386}
   m_RootOrder: 0
@@ -101,7 +101,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5391814177504422741}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 3.590622, y: -1.4596512, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6062456759426404208}
@@ -145,7 +145,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: -8260420430879919396, guid: 48aed2d0d3a1d4a4ab7afd1c2182af5e,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -281,6 +281,7 @@ MonoBehaviour:
   animator: {fileID: 291023940}
   knife: {fileID: 5391814177504422741}
   damageHitBox: {fileID: 4259292800131428470}
+  knifeRadius: 0.4
 --- !u!50 &8662968551763908592
 Rigidbody2D:
   serializedVersion: 4

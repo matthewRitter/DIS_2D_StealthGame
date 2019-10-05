@@ -18,6 +18,7 @@ public class PlayerController : MonoBehaviour
     float prevMagnitude;
     private bool playerMoving;
     private Vector2 lastMove;
+    public float knifeRadius;
 
     // Start is called before the first frame update
     void Start()
@@ -38,15 +39,14 @@ public class PlayerController : MonoBehaviour
     }
 
     // Update is called once per frame
+    float knifeHori;
+    float knifeVert;
     void FixedUpdate()
     {
         playerMoving = false;
 
-        float knifeHori = Input.GetAxis("Horizontal");
-        float knifeVert = Input.GetAxis("Vertical");
-
         if (protagonist.velocity.magnitude > 0) {
-            knife.transform.up = protagonist.velocity.normalized;
+            knife.transform.up = lastMove;
         }
 
         if (Input.GetKeyDown("space"))
@@ -55,27 +55,36 @@ public class PlayerController : MonoBehaviour
             StartCoroutine(Attack());
         }
 
-        if (Input.GetAxis("Horizontal") > 0.35)
+        if (Input.GetAxis("Horizontal") > 0)
         {
-            knifeHori = 0.35f;
+            knifeHori = Input.GetAxis("Horizontal");
         }
 
-        if (Input.GetAxis("Horizontal") < -0.35)
+        if (Input.GetAxis("Horizontal") < 0)
         {
-            knifeHori = -0.35f;
+            knifeHori = Input.GetAxis("Horizontal");
         }
 
-        if (Input.GetAxis("Vertical") > 0.35)
+        if (Input.GetAxis("Vertical") > 0)
         {
-            knifeVert = 0.35f;
+            knifeVert = Input.GetAxis("Vertical");
         }
 
-        if (Input.GetAxis("Vertical") < -0.35)
+        if (Input.GetAxis("Vertical") < 0)
         {
-            knifeVert = -0.35f;
+            knifeVert = Input.GetAxis("Vertical");
         }
+
+        Vector3 i = lastMove;
+
+        /*V
+        Debug.Log(transform.localPosition.x + " " + transform.localPosition.y);
+        Vector2 cirPoint = new Vector2(knifeHori,knifeVert);*/
+
+        float theta = -Vector3.SignedAngle(i, transform.right,Vector3.forward);
 
         Vector2 movement = new Vector3(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical"));
+        Vector2 cirPoint = new Vector2(knifeRadius * Mathf.Cos(Mathf.Deg2Rad*theta), knifeRadius * Mathf.Sin(Mathf.Deg2Rad*theta));
 
         //if the player is moving       
         if (movement.magnitude > 0)
@@ -107,7 +116,15 @@ public class PlayerController : MonoBehaviour
         //update the previous magnitude
         prevMagnitude = movement.magnitude;
 
-        knife.transform.localPosition = new Vector3(knifeHori, knifeVert, 0.0f);
+      /*  if(knifeHori < 0)
+        {
+            cirPoint.x = -cirPoint.x;
+        }
+        if (knifeVert < 0)
+        {
+            cirPoint.y = -cirPoint.y;
+        }*/
+        knife.transform.localPosition = new Vector3(cirPoint.x, cirPoint.y, 0.0f);
 
 
         //redundant -> not used in the animator

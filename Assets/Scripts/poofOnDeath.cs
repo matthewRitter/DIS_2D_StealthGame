@@ -10,7 +10,7 @@ public class poofOnDeath : MonoBehaviour
     public int radius;
 
     // Start is called before the first frame update
-    void OnDestroy()
+    public void Poof()
     {
         Vector2 start = transform.position;
         for (int i = 360 / poofQuantity; i <= 360; i += 360 / poofQuantity)
