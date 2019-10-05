@@ -4,11 +4,20 @@ using UnityEngine;
 
 public class Gun : MonoBehaviour
 {
+    public int bulletCount;
     public GameObject casing;
     public int casingVeclocity;
     public GameObject bullet;
     public int bulletVeclocity = 20;
     public bool isPlayer = true;
+
+    void Update()
+    {
+        if(GetComponentInParent<PlayerController>() != null)
+        {
+            isPlayer = true;
+        }
+    }
 
     public void shoot()
     {
