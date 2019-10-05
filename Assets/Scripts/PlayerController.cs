@@ -44,9 +44,10 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator Knife()
     {
+        wait = true;
         damageHitBox.SetActive(true);
         knifeAnimator.SetTrigger("isAttacking");
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.2f);
         Debug.Log("Working");
         damageHitBox.SetActive(false);
         knifeAnimator.ResetTrigger("isAttacking");
@@ -63,7 +64,7 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator Wait()
     {
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(0.2f);
         wait = false;
     }
 
@@ -103,6 +104,7 @@ public class PlayerController : MonoBehaviour
         {
             //Debug.Log("SPACE");
             StartCoroutine(Knife());
+            StartCoroutine(Wait());
         }
 
 
