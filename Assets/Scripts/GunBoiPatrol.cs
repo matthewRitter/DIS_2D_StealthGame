@@ -130,18 +130,21 @@ public class GunBoiPatrol : MonoBehaviour
             StartCoroutine(ShootCooldown());
         }
         
-
-        if (playingStealthMusic == true)
+        if(!constantShoot)
         {
-            stealthMusic.Stop();
 
-            if (playingFoundMusic == false)
+            if (playingStealthMusic == true)
             {
-                foundMusicOne.Play();
-                foundMusicTwo.Play();
+                stealthMusic.Stop();
+
+                if (playingFoundMusic == false)
+                {
+                    foundMusicOne.Play();
+                    foundMusicTwo.Play();
+                }
+                playingFoundMusic = true;
+                playingStealthMusic = false;
             }
-            playingFoundMusic = true;
-            playingStealthMusic = false;
         }
     }
 
@@ -250,21 +253,26 @@ public class GunBoiPatrol : MonoBehaviour
             }
         }
 
-        if (playingFoundMusic == true && alerted == false && !(otherAlerted > 1))
+        if(!constantShoot)
         {
-            if (playingStealthMusic == false)
+
+            if (playingFoundMusic == true && alerted == false && !(otherAlerted > 1))
             {
-                stealthMusic.time = 5.0f;
-                stealthMusic.Play();
+                if (playingStealthMusic == false)
+                {
+                    stealthMusic.time = 5.0f;
+                    stealthMusic.Play();
+                }
+                StartCoroutine(FadeOut(foundMusicOne, fadeTime));
+                StartCoroutine(FadeOut(foundMusicTwo, fadeTime));
+
+
+
+                playingFoundMusic = false;
+                playingStealthMusic = true;
             }
-            StartCoroutine(FadeOut(foundMusicOne, fadeTime));
-            StartCoroutine(FadeOut(foundMusicTwo, fadeTime));
-
-
-
-            playingFoundMusic = false;
-            playingStealthMusic = true;
         }
+
 
         wasAlerted = false;
         lookingAround = true;
