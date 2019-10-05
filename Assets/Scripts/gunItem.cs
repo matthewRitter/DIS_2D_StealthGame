@@ -35,9 +35,9 @@ public class gunItem : MonoBehaviour
             player.GetComponent<PlayerController>().gunActive = true;
             player.GetComponent<PlayerController>().knifeActive = false;
             Destroy(gameObject);
-            Gun gunobj = player.GetComponent<Gun>();
-            gunobj.bulletCount = bulletCount;
-            gunobj.isPlayer = true;
+            GameObject gun = player.GetComponent<PlayerController>().gun;
+            gun.GetComponent<Gun>().bulletCount = bulletCount;
+            gun.GetComponent<Gun>().isPlayer = true;
 
         }
     }
