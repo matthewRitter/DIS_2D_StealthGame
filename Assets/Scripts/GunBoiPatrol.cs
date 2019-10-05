@@ -85,7 +85,7 @@ public class GunBoiPatrol : MonoBehaviour
     {
         if (constantShoot)
         {
-            canShoot = true;
+            SetAlertState(true);
             MoveToWaypoint(waypoints[curpointidx]);
             ShootPlayer();
         }
