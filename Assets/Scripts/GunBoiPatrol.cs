@@ -20,6 +20,8 @@ public class GunBoiPatrol : MonoBehaviour
     AudioSource foundMusicOne;
     AudioSource foundMusicTwo;
     public GameObject gun;
+    public GameObject gunDropItem;
+    public bool constantShoot = false;
 
 
     private Animator gunAnimator;
@@ -81,20 +83,28 @@ public class GunBoiPatrol : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
-        if (wasAlerted && !alerted)
-        {
-            StopCoroutine(LookAround());
-            StartCoroutine(LookAround());
+        if (constantShoot)
+        { 
+            MoveToWaypoint(waypoints[curpointidx]);
+            ShootPlayer();
         }
         else
         {
-            if (!lookingAround)
+
+            if (wasAlerted && !alerted)
             {
-                if (!alerted)
-                    MoveToWaypoint(waypoints[curpointidx]);
-                else
-                    ShootPlayer();
+                StopCoroutine(LookAround());
+                StartCoroutine(LookAround());
+            }
+            else
+            {
+                if (!lookingAround)
+                {
+                    if (!alerted)
+                        MoveToWaypoint(waypoints[curpointidx]);
+                    else
+                        ShootPlayer();
+                }
             }
         }
 
@@ -105,7 +115,11 @@ public class GunBoiPatrol : MonoBehaviour
     // Moves enemy towards the players position where it was hit by a raycast
     private void ShootPlayer()
     {
-        transform.right = (Vector3)playerPosition - transform.position;
+
+        if (!constantShoot)
+        {
+            transform.right = (Vector3)playerPosition - transform.position;
+        }
 
         wasAlerted = true;
 
@@ -272,5 +286,11 @@ public class GunBoiPatrol : MonoBehaviour
 
         otherAlerted = 0;
     }
+
+    public void SpawnGun()
+    {
+        Instantiate(gunDropItem, transform.position, Quaternion.identity);
+    }
+
 
 }

@@ -10,6 +10,11 @@ public class damageHitBox : MonoBehaviour
         {
             col.gameObject.GetComponent<poofOnDeath>().Poof();
             Destroy(col.gameObject);
+
+            if(col.gameObject.GetComponent<GunBoiPatrol>() != null)
+            {
+                col.gameObject.GetComponent<GunBoiPatrol>().SpawnGun();
+            }
         }
     }
 }

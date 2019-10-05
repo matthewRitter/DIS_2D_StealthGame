@@ -288,6 +288,8 @@ MonoBehaviour:
   audioFoundTwo: {fileID: 0}
   fadeTime: 4
   gun: {fileID: 8391703664944893467}
+  gunDropItem: {fileID: 5642033467102276403, guid: 2c90cd0ec24d5e6408bc00e77cda3c94,
+    type: 3}
 --- !u!1001 &7412982291868446243
 PrefabInstance:
   m_ObjectHideFlags: 0

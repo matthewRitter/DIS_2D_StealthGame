@@ -8,6 +8,7 @@ public class gunItem : MonoBehaviour
     public int bulletCount;
     private bool triggered;
     private GameObject player;
+
     private void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.tag == "Player")
@@ -34,7 +35,10 @@ public class gunItem : MonoBehaviour
             player.GetComponent<PlayerController>().gunActive = true;
             player.GetComponent<PlayerController>().knifeActive = false;
             Destroy(gameObject);
-            player.GetComponent<Gun>().bulletCount = bulletCount;
+            Gun gunobj = player.GetComponent<Gun>();
+            gunobj.bulletCount = bulletCount;
+            gunobj.isPlayer = true;
+
         }
     }
 }
