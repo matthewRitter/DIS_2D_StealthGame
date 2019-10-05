@@ -65,6 +65,14 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         playerMoving = false;
+        if (!knifeActive)
+        {
+            knife.SetActive(false);
+        }
+        if (!gunActive)
+        {
+            gun.SetActive(false);
+        }
 
         if (protagonist.velocity.magnitude > 0 && knifeActive) {
             knife.transform.up = lastMove;
@@ -80,9 +88,16 @@ public class PlayerController : MonoBehaviour
             StartCoroutine(Knife());
         }
 
+
         if (Input.GetKeyDown("space") && gunActive)
         {
             StartCoroutine(Pewpew());
+        }
+
+        if (Input.GetKeyDown(KeyCode.Q) && gunActive)
+        {
+            gunActive = false;
+            knifeActive = true;
         }
 
         if (Input.GetAxis("Horizontal") > 0)

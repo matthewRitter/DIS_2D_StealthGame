@@ -19,8 +19,9 @@ public class Gun : MonoBehaviour
         casingDrop.transform.eulerAngles = euler;
         casingDrop.GetComponent<Rigidbody2D>().velocity = transform.right * casingVeclocity;
 
-        GameObject bulletSpawn = (GameObject)Instantiate(bullet, transform.position, Quaternion.identity);
-        bulletSpawn.transform.up = transform.up; 
-        bulletSpawn.GetComponent<Rigidbody2D>().velocity = transform.up * bulletVeclocity;
+        
+        GameObject bulletObj = (GameObject)Instantiate(bullet, transform.position, Quaternion.identity);
+        bulletObj.transform.up = transform.up; 
+        bulletObj.GetComponent<Rigidbody2D>().velocity = transform.up * bulletVeclocity;
     }
 }
