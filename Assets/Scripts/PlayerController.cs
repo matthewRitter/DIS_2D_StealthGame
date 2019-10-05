@@ -47,7 +47,7 @@ public class PlayerController : MonoBehaviour
     {
         damageHitBox.SetActive(true);
         knifeAnimator.SetTrigger("isAttacking");
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(0.5f);
         Debug.Log("Working");
         damageHitBox.SetActive(false);
         knifeAnimator.ResetTrigger("isAttacking");
