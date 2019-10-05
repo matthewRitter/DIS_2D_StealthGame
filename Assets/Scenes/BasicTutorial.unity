@@ -5504,8 +5504,8 @@ Tilemap:
       m_ColliderType: 1
   - first: {x: 12, y: 7, z: 0}
     second:
-      m_TileIndex: 0
-      m_TileSpriteIndex: 0
+      m_TileIndex: 8
+      m_TileSpriteIndex: 8
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_ObjectToInstantiate: {fileID: 0}
@@ -5513,8 +5513,8 @@ Tilemap:
       m_ColliderType: 1
   - first: {x: 13, y: 7, z: 0}
     second:
-      m_TileIndex: 0
-      m_TileSpriteIndex: 0
+      m_TileIndex: 8
+      m_TileSpriteIndex: 8
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_ObjectToInstantiate: {fileID: 0}
@@ -5522,8 +5522,8 @@ Tilemap:
       m_ColliderType: 1
   - first: {x: 14, y: 7, z: 0}
     second:
-      m_TileIndex: 0
-      m_TileSpriteIndex: 0
+      m_TileIndex: 8
+      m_TileSpriteIndex: 8
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_ObjectToInstantiate: {fileID: 0}
@@ -5531,8 +5531,8 @@ Tilemap:
       m_ColliderType: 1
   - first: {x: 15, y: 7, z: 0}
     second:
-      m_TileIndex: 1
-      m_TileSpriteIndex: 1
+      m_TileIndex: 8
+      m_TileSpriteIndex: 8
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_ObjectToInstantiate: {fileID: 0}
@@ -5540,8 +5540,8 @@ Tilemap:
       m_ColliderType: 1
   - first: {x: 16, y: 7, z: 0}
     second:
-      m_TileIndex: 0
-      m_TileSpriteIndex: 0
+      m_TileIndex: 8
+      m_TileSpriteIndex: 8
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_ObjectToInstantiate: {fileID: 0}
@@ -5549,8 +5549,8 @@ Tilemap:
       m_ColliderType: 1
   - first: {x: 17, y: 7, z: 0}
     second:
-      m_TileIndex: 0
-      m_TileSpriteIndex: 0
+      m_TileIndex: 8
+      m_TileSpriteIndex: 8
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_ObjectToInstantiate: {fileID: 0}
@@ -5558,8 +5558,8 @@ Tilemap:
       m_ColliderType: 1
   - first: {x: 18, y: 7, z: 0}
     second:
-      m_TileIndex: 0
-      m_TileSpriteIndex: 0
+      m_TileIndex: 8
+      m_TileSpriteIndex: 8
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_ObjectToInstantiate: {fileID: 0}
@@ -5837,9 +5837,9 @@ Tilemap:
       m_ColliderType: 1
   m_AnimatedTiles: {}
   m_TileAssetArray:
-  - m_RefCount: 373
+  - m_RefCount: 367
     m_Data: {fileID: 11400000, guid: a89a1178a15e40244b700788491e6215, type: 2}
-  - m_RefCount: 42
+  - m_RefCount: 41
     m_Data: {fileID: 11400000, guid: 56a2d96f288e3264f814ca01644fec10, type: 2}
   - m_RefCount: 2
     m_Data: {fileID: 11400000, guid: 57ce792b0f2f2e44d96dca144b3ecf5c, type: 2}
@@ -5853,11 +5853,13 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: 52eb812afb5630847b9d23216f4f1bff, type: 2}
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: 6a0d84ce2c82d0f4f8aa79d8dbc622ce, type: 2}
+  - m_RefCount: 7
+    m_Data: {fileID: 11400000, guid: e848b66439448684393001cd06e1f550, type: 2}
   m_TileSpriteArray:
-  - m_RefCount: 373
+  - m_RefCount: 367
     m_Data: {fileID: 4186784865240572294, guid: f518133236f6b1044936664768cd1588,
       type: 3}
-  - m_RefCount: 42
+  - m_RefCount: 41
     m_Data: {fileID: 4299321251694995602, guid: f518133236f6b1044936664768cd1588,
       type: 3}
   - m_RefCount: 2
@@ -5877,6 +5879,9 @@ Tilemap:
       type: 3}
   - m_RefCount: 1
     m_Data: {fileID: 7595231107117256513, guid: f518133236f6b1044936664768cd1588,
+      type: 3}
+  - m_RefCount: 7
+    m_Data: {fileID: 1080561578018773837, guid: f518133236f6b1044936664768cd1588,
       type: 3}
   m_TileMatrixArray:
   - m_RefCount: 435
@@ -8030,12 +8035,12 @@ PrefabInstance:
     - target: {fileID: 3674618191639244767, guid: f6a09af50c4838f45944879e6275ae7f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.17000002
+      value: 36.45
       objectReference: {fileID: 0}
     - target: {fileID: 3674618191639244767, guid: f6a09af50c4838f45944879e6275ae7f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.8899999
+      value: -17.53
       objectReference: {fileID: 0}
     - target: {fileID: 3674618191639244767, guid: f6a09af50c4838f45944879e6275ae7f,
         type: 3}
@@ -8092,6 +8097,11 @@ PrefabInstance:
       propertyPath: Target
       value: 
       objectReference: {fileID: 1435766085}
+    - target: {fileID: 3674618191639244761, guid: f6a09af50c4838f45944879e6275ae7f,
+        type: 3}
+      propertyPath: FollowSpeed
+      value: 5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6a09af50c4838f45944879e6275ae7f, type: 3}
 --- !u!1001 &1693359885

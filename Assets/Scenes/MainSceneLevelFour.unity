@@ -378,6 +378,16 @@ PrefabInstance:
       propertyPath: audioFoundTwo
       value: 
       objectReference: {fileID: 713201461}
+    - target: {fileID: 2137867330325218885, guid: 67d196f724b08f34eb409139aa5653f7,
+        type: 3}
+      propertyPath: chaseSpeed
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2137867330325218885, guid: 67d196f724b08f34eb409139aa5653f7,
+        type: 3}
+      propertyPath: lookAroundTime
+      value: 0.25
+      objectReference: {fileID: 0}
     - target: {fileID: 2137867330325218907, guid: 67d196f724b08f34eb409139aa5653f7,
         type: 3}
       propertyPath: cameraObj
@@ -452,11 +462,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 225
       objectReference: {fileID: 0}
-    - target: {fileID: 808491721111749085, guid: 7479e560032214b47937372be08d1ce2,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 808491721111749086, guid: 7479e560032214b47937372be08d1ce2,
         type: 3}
       propertyPath: rayCount
@@ -471,6 +476,11 @@ PrefabInstance:
         type: 3}
       propertyPath: alpha
       value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 808491721111749085, guid: 7479e560032214b47937372be08d1ce2,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7479e560032214b47937372be08d1ce2, type: 3}
@@ -3411,22 +3421,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: -971309276157280399, guid: e6ef0ee18b0f4124cb091ddb7beadd7d,
-        type: 3}
-      propertyPath: bloodPrefab
-      value: 
-      objectReference: {fileID: 5955539211737578694, guid: bfa566578cb1e7a4f894b2f2b05ecc60,
-        type: 3}
-    - target: {fileID: 7779449245347438253, guid: e6ef0ee18b0f4124cb091ddb7beadd7d,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: -7603212474241353074, guid: e6ef0ee18b0f4124cb091ddb7beadd7d,
-        type: 3}
-      propertyPath: cameraObj
-      value: 
-      objectReference: {fileID: 1033116617}
     - target: {fileID: 295709816830254330, guid: e6ef0ee18b0f4124cb091ddb7beadd7d,
         type: 3}
       propertyPath: player
@@ -3437,6 +3431,22 @@ PrefabInstance:
       propertyPath: AlertRadius
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 7779449245347438253, guid: e6ef0ee18b0f4124cb091ddb7beadd7d,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: -7603212474241353074, guid: e6ef0ee18b0f4124cb091ddb7beadd7d,
+        type: 3}
+      propertyPath: cameraObj
+      value: 
+      objectReference: {fileID: 1033116617}
+    - target: {fileID: -971309276157280399, guid: e6ef0ee18b0f4124cb091ddb7beadd7d,
+        type: 3}
+      propertyPath: bloodPrefab
+      value: 
+      objectReference: {fileID: 5955539211737578694, guid: bfa566578cb1e7a4f894b2f2b05ecc60,
+        type: 3}
     - target: {fileID: 292795868864384193, guid: e6ef0ee18b0f4124cb091ddb7beadd7d,
         type: 3}
       propertyPath: patrolSpeed
@@ -3558,6 +3568,11 @@ PrefabInstance:
       propertyPath: waypoints.Array.data[1]
       value: 
       objectReference: {fileID: 621719443}
+    - target: {fileID: 2137867330325218885, guid: 67d196f724b08f34eb409139aa5653f7,
+        type: 3}
+      propertyPath: lookAroundTime
+      value: 0.25
+      objectReference: {fileID: 0}
     - target: {fileID: 2137867330325218907, guid: 67d196f724b08f34eb409139aa5653f7,
         type: 3}
       propertyPath: cameraObj
@@ -4944,11 +4959,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -45
       objectReference: {fileID: 0}
-    - target: {fileID: 808491721111749085, guid: 7479e560032214b47937372be08d1ce2,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 808491721111749086, guid: 7479e560032214b47937372be08d1ce2,
         type: 3}
       propertyPath: rayCount
@@ -4963,6 +4973,11 @@ PrefabInstance:
         type: 3}
       propertyPath: alpha
       value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 808491721111749085, guid: 7479e560032214b47937372be08d1ce2,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7479e560032214b47937372be08d1ce2, type: 3}
