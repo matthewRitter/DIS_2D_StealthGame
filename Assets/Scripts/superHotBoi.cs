@@ -112,8 +112,16 @@ public class superHotBoi : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             print("kill Player");
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+
+            StartCoroutine(LoadSceneAfter(0.1f, SceneManager.GetActiveScene().buildIndex));
         }
+    }
+
+    IEnumerator LoadSceneAfter(float delay, int buildIndex)
+    {
+        yield return new WaitForSeconds(delay);
+        SceneManager.LoadScene(buildIndex);
+
     }
 
 }
