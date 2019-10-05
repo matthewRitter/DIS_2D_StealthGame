@@ -21,7 +21,10 @@ public class Gun : MonoBehaviour
 
     public void shoot()
     {
-        
+        if (isPlayer &&  bulletCount == 0)
+        {
+            return;
+        }
         GameObject casingDrop = (GameObject)Instantiate(casing, transform.position, Quaternion.identity);
         casingDrop.transform.rotation = Random.rotation;
         Vector3 euler = transform.eulerAngles;
@@ -35,6 +38,7 @@ public class Gun : MonoBehaviour
             GameObject bulletObj = (GameObject)Instantiate(bullet, transform.position, Quaternion.identity);
             bulletObj.transform.up = transform.up;
             bulletObj.GetComponent<Rigidbody2D>().velocity = transform.up * bulletVeclocity;
+            bulletCount -= 1;
         }
         else
         {

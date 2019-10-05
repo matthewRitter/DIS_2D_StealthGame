@@ -17,6 +17,7 @@ public class PlayerController : MonoBehaviour
     private Animator knifeAnimator;
     private Animator gunAnimator;
     public GameObject damageHitBox;
+    private bool wait;
     float prevMagnitude;
     private bool playerMoving;
     private Vector2 lastMove;
@@ -54,10 +55,17 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator Pewpew()
     {
+        wait = true;
         gunAnimator.SetTrigger("isAttacking");
         gun.GetComponent<Gun>().shoot();
         yield return new WaitForSeconds(0.5f);
         knifeAnimator.ResetTrigger("isAttacking");
+    }
+
+    IEnumerator Wait()
+    {
+        yield return new WaitForSeconds(0.5f);
+        wait = false;
     }
 
     // Update is called once per frame
@@ -99,9 +107,10 @@ public class PlayerController : MonoBehaviour
         }
 
 
-        if (Input.GetKeyDown("space") && gunActive)
+        if (Input.GetKeyDown("space") && gunActive && gun.GetComponent<Gun>().bulletCount > 0 && !wait)
         {
             StartCoroutine(Pewpew());
+            StartCoroutine(Wait());
         }
 
         if (Input.GetKeyDown(KeyCode.Q) && gunActive)
