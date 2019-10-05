@@ -7,7 +7,8 @@ public class Gun : MonoBehaviour
     public GameObject casing;
     public int casingVeclocity;
     public GameObject bullet;
-    public int bulletVeclocity;
+    public int bulletVeclocity = 20;
+    public bool isPlayer = true;
 
     public void shoot()
     {
@@ -20,8 +21,20 @@ public class Gun : MonoBehaviour
         casingDrop.GetComponent<Rigidbody2D>().velocity = transform.right * casingVeclocity;
 
         
-        GameObject bulletObj = (GameObject)Instantiate(bullet, transform.position, Quaternion.identity);
-        bulletObj.transform.up = transform.up; 
-        bulletObj.GetComponent<Rigidbody2D>().velocity = transform.up * bulletVeclocity;
+        if (isPlayer)
+        {
+            GameObject bulletObj = (GameObject)Instantiate(bullet, transform.position, Quaternion.identity);
+            bulletObj.transform.up = transform.up;
+            bulletObj.GetComponent<Rigidbody2D>().velocity = transform.up * bulletVeclocity;
+        }
+        else
+        {
+            Vector3 pos = transform.parent.position + transform.parent.right;
+            GameObject bulletObj = (GameObject)Instantiate(bullet, pos, Quaternion.identity);
+            bulletObj.transform.up = transform.up;
+            bulletObj.GetComponent<Rigidbody2D>().velocity = transform.up * bulletVeclocity;
+        }
+
     }
+
 }

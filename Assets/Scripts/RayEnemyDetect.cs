@@ -23,7 +23,9 @@ public class RayEnemyDetect : MonoBehaviour
     private LineRenderer viewLineRenderer;
     private List<RaycastHit2D> rays;
     private List<GameObject> rayRenderersList;
-    private WaypointPatrol patrolScript;
+    private WaypointPatrol waypointPatrolScript;
+    private GunBoiPatrol gunBoiPatrolScript;
+
     private ScreenShake screenShake;
     private float minViewAngle;
     private float maxViewAngle;
@@ -40,7 +42,8 @@ public class RayEnemyDetect : MonoBehaviour
     {
         rays = new List<RaycastHit2D>(rayCount);
         rayRenderersList = new List<GameObject>();
-        patrolScript = GetComponent<WaypointPatrol>();
+        waypointPatrolScript = GetComponent<WaypointPatrol>();
+        gunBoiPatrolScript = GetComponent<GunBoiPatrol>();
         screenShake = cameraObj.GetComponent<ScreenShake>();
 
 
@@ -76,9 +79,13 @@ public class RayEnemyDetect : MonoBehaviour
 
     private void CheckRays(List<Vector3> renderVectors)
     {
-        if (patrolScript != null)
+        if (waypointPatrolScript != null)
         {
-            patrolScript.SetAlertState(false);
+            waypointPatrolScript.SetAlertState(false);
+        }
+        if (gunBoiPatrolScript != null)
+        {
+            gunBoiPatrolScript.SetAlertState(false);
         }
         int count = 0;
 
@@ -94,13 +101,17 @@ public class RayEnemyDetect : MonoBehaviour
             {
                 if (hit.collider.tag == "Player")
                 {
-                    if (patrolScript != null)
+                    if (waypointPatrolScript != null)
                     {
-                        patrolScript.SetAlertState(true);
+                        waypointPatrolScript.SetAlertState(true);
                     }
                     if (circlePatrolScript != null)
                     {
                         circlePatrolScript.setAlertState(true);
+                    }
+                    if(gunBoiPatrolScript != null)
+                    {
+                        gunBoiPatrolScript.SetAlertState(true);
                     }
                     float baseShakeMag = 1/((Vector3)hit.point - transform.position).magnitude;
                     if (screenShake != null)
@@ -109,9 +120,13 @@ public class RayEnemyDetect : MonoBehaviour
                     }
                     if (updatePlayerPos)
                     {
-                        if (patrolScript != null)
+                        if (waypointPatrolScript != null)
                         {
-                            patrolScript.SetPlayerPosition(hit.point);
+                            waypointPatrolScript.SetPlayerPosition(hit.point);
+                        }
+                        if (gunBoiPatrolScript != null)
+                        {
+                            gunBoiPatrolScript.SetPlayerPosition(hit.point);
                         }
                         StartCoroutine(TrackingCooldown());
                     }
