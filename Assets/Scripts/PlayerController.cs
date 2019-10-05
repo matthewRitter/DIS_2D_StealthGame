@@ -13,12 +13,16 @@ public class PlayerController : MonoBehaviour
     public AudioSource sound;
     public Animator animator;
     public GameObject knife;
+    public GameObject gun;
     private Animator knifeAnimator;
+    private Animator gunAnimator;
     public GameObject damageHitBox;
     float prevMagnitude;
     private bool playerMoving;
     private Vector2 lastMove;
     public float knifeRadius;
+    public bool knifeActive = true;
+    public bool gunActive = false;
 
     // Start is called before the first frame update
     void Start()
@@ -26,15 +30,32 @@ public class PlayerController : MonoBehaviour
         protagonist = gameObject.GetComponent<Rigidbody2D>();
         sound = GetComponent<AudioSource>();
         knifeAnimator = knife.GetComponent<Animator>();
-}
+        gunAnimator = gun.GetComponent<Animator>();
+        if (!knifeActive)
+        {
+            knife.SetActive(false);
+        }
+        if (!gunActive)
+        {
+            gun.SetActive(false);
+        }
+    }
 
-    IEnumerator Attack()
+    IEnumerator Knife()
     {
         damageHitBox.SetActive(true);
         knifeAnimator.SetTrigger("isAttacking");
         yield return new WaitForSeconds(1.0f);
         Debug.Log("Working");
         damageHitBox.SetActive(false);
+        knifeAnimator.ResetTrigger("isAttacking");
+    }
+
+    IEnumerator Pewpew()
+    {
+        gunAnimator.SetTrigger("isAttacking");
+        gun.GetComponent<Gun>().shoot();
+        yield return new WaitForSeconds(0.5f);
         knifeAnimator.ResetTrigger("isAttacking");
     }
 
@@ -45,14 +66,23 @@ public class PlayerController : MonoBehaviour
     {
         playerMoving = false;
 
-        if (protagonist.velocity.magnitude > 0) {
+        if (protagonist.velocity.magnitude > 0 && knifeActive) {
             knife.transform.up = lastMove;
         }
-
-        if (Input.GetKeyDown("space"))
+        if (protagonist.velocity.magnitude > 0 && gunActive)
         {
-            Debug.Log("SPACE");
-            StartCoroutine(Attack());
+            gun.transform.up = lastMove;
+        }
+
+        if (Input.GetKeyDown("space") && knifeActive)
+        {
+            //Debug.Log("SPACE");
+            StartCoroutine(Knife());
+        }
+
+        if (Input.GetKeyDown("space") && gunActive)
+        {
+            StartCoroutine(Pewpew());
         }
 
         if (Input.GetAxis("Horizontal") > 0)
@@ -116,15 +146,23 @@ public class PlayerController : MonoBehaviour
         //update the previous magnitude
         prevMagnitude = movement.magnitude;
 
-      /*  if(knifeHori < 0)
+        /*  if(knifeHori < 0)
+          {
+              cirPoint.x = -cirPoint.x;
+          }
+          if (knifeVert < 0)
+          {
+              cirPoint.y = -cirPoint.y;
+          }*/
+
+        if (knifeActive)
         {
-            cirPoint.x = -cirPoint.x;
+            knife.transform.localPosition = new Vector3(cirPoint.x, cirPoint.y, 0.0f);
         }
-        if (knifeVert < 0)
+        if (gunActive)
         {
-            cirPoint.y = -cirPoint.y;
-        }*/
-        knife.transform.localPosition = new Vector3(cirPoint.x, cirPoint.y, 0.0f);
+            gun.transform.localPosition = new Vector3(cirPoint.x, cirPoint.y, 0.0f);
+        }
 
 
         //redundant -> not used in the animator
