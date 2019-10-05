@@ -10,6 +10,8 @@ public class Gun : MonoBehaviour
     public GameObject bullet;
     public int bulletVeclocity = 20;
     public bool isPlayer = true;
+    public AudioSource gunEmpty;
+    public AudioSource gunShot;
 
     void Update()
     {
@@ -23,8 +25,11 @@ public class Gun : MonoBehaviour
     {
         if (isPlayer &&  bulletCount == 0)
         {
+            gunEmpty.Play();
             return;
         }
+
+        gunShot.Play();
         GameObject casingDrop = (GameObject)Instantiate(casing, transform.position, Quaternion.identity);
         casingDrop.transform.rotation = Random.rotation;
         Vector3 euler = transform.eulerAngles;
