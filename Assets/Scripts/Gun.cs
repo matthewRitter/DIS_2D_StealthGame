@@ -11,6 +11,14 @@ public class Gun : MonoBehaviour
     public int bulletVeclocity = 20;
     public bool isPlayer = true;
 
+    void Update()
+    {
+        if(GetComponentInParent<PlayerController>() != null)
+        {
+            isPlayer = true;
+        }
+    }
+
     public void shoot()
     {
         
