@@ -141,7 +141,7 @@ MonoBehaviour:
   - {fileID: 0}
   chaseSpeed: 2.5
   patrolSpeed: 1
-  lookAroundTime: 2
+  lookAroundTime: 0.3
   audioStealth: {fileID: 0}
   audioFoundOne: {fileID: 0}
   audioFoundTwo: {fileID: 0}
