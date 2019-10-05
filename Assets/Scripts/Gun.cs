@@ -7,18 +7,7 @@ public class Gun : MonoBehaviour
     public GameObject casing;
     public int casingVeclocity;
     public GameObject bullet;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    public int bulletVeclocity;
 
     public void shoot()
     {
@@ -29,5 +18,9 @@ public class Gun : MonoBehaviour
         euler.z = Random.Range(0f, 360f);
         casingDrop.transform.eulerAngles = euler;
         casingDrop.GetComponent<Rigidbody2D>().velocity = transform.right * casingVeclocity;
+
+        GameObject bulletSpawn = (GameObject)Instantiate(bullet, transform.position, Quaternion.identity);
+        bulletSpawn.transform.up = transform.up; 
+        bulletSpawn.GetComponent<Rigidbody2D>().velocity = transform.up * bulletVeclocity;
     }
 }
