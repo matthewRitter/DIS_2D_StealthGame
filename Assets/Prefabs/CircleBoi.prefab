@@ -56,12 +56,12 @@ GameObject:
   - component: {fileID: 7779449245347438255}
   - component: {fileID: 7779449245347438254}
   - component: {fileID: 7779449245347438252}
-  - component: {fileID: 7779449245347438253}
   - component: {fileID: -7603212474241353074}
   - component: {fileID: 7435809004477375130}
   - component: {fileID: -971309276157280399}
   - component: {fileID: 295709816830254330}
   - component: {fileID: 292795868864384193}
+  - component: {fileID: 515968543917912005}
   m_Layer: 0
   m_Name: CircleBoi
   m_TagString: Enemy
@@ -155,32 +155,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &7779449245347438253
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7779449245347438240}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 1}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1, y: 1}
-  m_EdgeRadius: 0
 --- !u!114 &-7603212474241353074
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -317,7 +291,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   poofPrefab: {fileID: 4708722353914459623, guid: eb9c318d63ed2f04bacb7f94fe65dd10,
     type: 3}
-  bloodPrefab: {fileID: 0}
+  bloodPrefab: {fileID: 5955539211737578694, guid: bfa566578cb1e7a4f894b2f2b05ecc60,
+    type: 3}
   poofQuantity: 7
   radius: 1
 --- !u!114 &295709816830254330
@@ -349,3 +324,19 @@ MonoBehaviour:
   circleRadius: 2
   patrolSpeed: 1.5
   clockwise: 0
+--- !u!58 &515968543917912005
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7779449245347438240}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.045468867, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.4696874
