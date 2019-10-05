@@ -130,7 +130,7 @@ public class GunBoiPatrol : MonoBehaviour
             StartCoroutine(ShootCooldown());
         }
         
-        if(constantShoot)
+        if(!constantShoot)
         {
 
             if (playingStealthMusic == true)
@@ -253,7 +253,7 @@ public class GunBoiPatrol : MonoBehaviour
             }
         }
 
-        if(constantShoot)
+        if(!constantShoot)
         {
 
             if (playingFoundMusic == true && alerted == false && !(otherAlerted > 1))
