@@ -23,6 +23,9 @@ public class PlayerController : MonoBehaviour
     public GameObject gunItem;
     public bool knifeActive = true;
     public bool gunActive = false;
+    public AudioSource gunShot;
+    public AudioSource gunEmpty;
+    public AudioSource knifeSwing;
 
     // Start is called before the first frame update
     void Start()
@@ -30,6 +33,7 @@ public class PlayerController : MonoBehaviour
         protagonist = gameObject.GetComponent<Rigidbody2D>();
         knifeAnimator = knife.GetComponent<Animator>();
         gunAnimator = gun.GetComponent<Animator>();
+        
         if (!knifeActive)
         {
             knife.SetActive(false);
@@ -53,7 +57,9 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator Pewpew()
     {
-        wait = true;
+        gunShot.time = 0.5f;
+        gunShot.Play();
+        wait = true;        
         gunAnimator.SetTrigger("isAttacking");
         gun.GetComponent<Gun>().shoot();
         yield return new WaitForSeconds(0.5f);
@@ -100,7 +106,9 @@ public class PlayerController : MonoBehaviour
 
         if (Input.GetKeyDown("space") && knifeActive)
         {
-            //Debug.Log("SPACE");
+            Debug.Log("SPACE");
+            knifeSwing.time = 0.2f;
+            knifeSwing.Play();
             StartCoroutine(Knife());
             StartCoroutine(Wait());
         }
@@ -110,6 +118,12 @@ public class PlayerController : MonoBehaviour
         {
             StartCoroutine(Pewpew());
             StartCoroutine(Wait());
+        }
+
+        if(Input.GetKeyDown("space") && gunActive && gun.GetComponent<Gun>().bulletCount == 0 && !wait)
+        {
+            gunEmpty.time = 0.1f;
+            gunEmpty.Play();
         }
 
         if (Input.GetKeyDown(KeyCode.Q) && gunActive)

@@ -121,6 +121,9 @@ MonoBehaviour:
   bullet: {fileID: 2150380416814471633, guid: 0f82999ce6e751f4eba4342bb6af5eab, type: 3}
   bulletVeclocity: 30
   isPlayer: 0
+  gunEmpty: {fileID: 5468333980076368670, guid: 6e338293e35dc0941bd0fc810ad640c2,
+    type: 3}
+  gunShot: {fileID: 3304259529516011083, guid: ba8ed596af2ce7d45aefbbdd7499aaf0, type: 3}
 --- !u!1 &1339088734644577971
 GameObject:
   m_ObjectHideFlags: 0

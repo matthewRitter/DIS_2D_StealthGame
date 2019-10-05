@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &6390578948125363177
+--- !u!1 &8265750194361489884
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,40 +8,40 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6510802423320583820}
-  - component: {fileID: 5468333980076368670}
+  - component: {fileID: 6404608875553654709}
+  - component: {fileID: 331332785917939359}
   m_Layer: 0
-  m_Name: GunEmpty
+  m_Name: knifeSwing
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &6510802423320583820
+--- !u!4 &6404608875553654709
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6390578948125363177}
+  m_GameObject: {fileID: 8265750194361489884}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5.069378, y: 28.762222, z: -412.61136}
+  m_LocalPosition: {x: 1.3599352, y: 3.5522006, z: -432.51443}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!82 &5468333980076368670
+--- !u!82 &331332785917939359
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6390578948125363177}
+  m_GameObject: {fileID: 8265750194361489884}
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 689593bcd57e0c84788f08eedbf22d23, type: 3}
+  m_audioClip: {fileID: 8300000, guid: ee6ed48b5ef76324cb750af68aab0245, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 0.2
   m_Pitch: 1

@@ -372,7 +372,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerSpeed: 10
   player: {fileID: 6201378804741689349}
-  sound: {fileID: 0}
   animator: {fileID: 3330045604186287024}
   knife: {fileID: 7270253148425923745}
   gun: {fileID: 3330045603313002070}
@@ -381,6 +380,9 @@ MonoBehaviour:
   gunItem: {fileID: 5642033467102276403, guid: 2c90cd0ec24d5e6408bc00e77cda3c94, type: 3}
   knifeActive: 1
   gunActive: 0
+  gunShot: {fileID: 3304259529516011083, guid: ba8ed596af2ce7d45aefbbdd7499aaf0, type: 3}
+  gunEmpty: {fileID: 5468333980076368670, guid: 6e338293e35dc0941bd0fc810ad640c2,
+    type: 3}
 --- !u!50 &6201378804741689348
 Rigidbody2D:
   serializedVersion: 4
