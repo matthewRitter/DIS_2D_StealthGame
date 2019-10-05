@@ -5,16 +5,16 @@ using UnityEngine;
 public class gunItem : MonoBehaviour
 {
     // Start is called before the first frame update
-    private int bulletCount;
+    public int bulletCount;
     private bool triggered;
     private GameObject player;
     private void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.gameObject.tag == "Player" && Input.GetKeyDown(KeyCode.E))
+        if (col.gameObject.tag == "Player")
         {
             player = col.gameObject;
             triggered = true;
-            Debug.Log("triggereed");
+            Debug.Log("triggered");
         }
     }
 
@@ -29,11 +29,12 @@ public class gunItem : MonoBehaviour
 
     private void Update()
     {
-        if (triggered)
+        if (triggered && Input.GetKeyDown(KeyCode.E))
         {
             player.GetComponent<PlayerController>().gunActive = true;
             player.GetComponent<PlayerController>().knifeActive = false;
             Destroy(gameObject);
+            player.GetComponent<Gun>().bulletCount = bulletCount;
         }
     }
 }

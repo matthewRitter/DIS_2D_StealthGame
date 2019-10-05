@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Gun : MonoBehaviour
 {
+    public int bulletCount;
     public GameObject casing;
     public int casingVeclocity;
     public GameObject bullet;

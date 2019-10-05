@@ -21,6 +21,7 @@ public class PlayerController : MonoBehaviour
     private bool playerMoving;
     private Vector2 lastMove;
     public float knifeRadius;
+    public GameObject gunItem;
     public bool knifeActive = true;
     public bool gunActive = false;
 
@@ -74,6 +75,15 @@ public class PlayerController : MonoBehaviour
             gun.SetActive(false);
         }
 
+        if (knifeActive)
+        {
+            knife.SetActive(true);
+        }
+        if (gunActive)
+        {
+            gun.SetActive(true);
+        }
+
         if (protagonist.velocity.magnitude > 0 && knifeActive) {
             knife.transform.up = lastMove;
         }
@@ -98,6 +108,12 @@ public class PlayerController : MonoBehaviour
         {
             gunActive = false;
             knifeActive = true;
+            GameObject gunDrop = (GameObject)Instantiate(gunItem, gun.transform.position, Quaternion.identity);
+            Vector3 euler = transform.eulerAngles;
+            euler.z = Random.Range(0f, 360f);
+            gunDrop.transform.eulerAngles = euler;
+            gunDrop.GetComponent<Rigidbody2D>().velocity = gun.transform.right * 2;
+            gunDrop.GetComponent<gunItem>().bulletCount = gun.GetComponent<Gun>().bulletCount;
         }
 
         if (Input.GetAxis("Horizontal") > 0)
