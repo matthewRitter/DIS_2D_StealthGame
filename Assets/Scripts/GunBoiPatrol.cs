@@ -298,7 +298,12 @@ public class GunBoiPatrol : MonoBehaviour
 
     public void SpawnGun()
     {
-        Instantiate(gunDropItem, transform.position, Quaternion.identity);
+        GameObject gunDrop = (GameObject)Instantiate(gunDropItem, transform.position, Quaternion.identity);
+
+        Vector3 euler = transform.eulerAngles;
+        euler.z = Random.Range(0f, 360f);
+        gunDrop.transform.eulerAngles = euler;
+        gunDrop.GetComponent<Rigidbody2D>().velocity = gun.transform.right * 2;
     }
 
 
