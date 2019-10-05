@@ -10,7 +10,6 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D protagonist;
     public GameObject player;
     private bool facingRight = true;
-    public AudioSource sound;
     public Animator animator;
     public GameObject knife;
     public GameObject gun;
@@ -29,7 +28,6 @@ public class PlayerController : MonoBehaviour
     void Start()
     {
         protagonist = gameObject.GetComponent<Rigidbody2D>();
-        sound = GetComponent<AudioSource>();
         knifeAnimator = knife.GetComponent<Animator>();
         gunAnimator = gun.GetComponent<Animator>();
         if (!knifeActive)
