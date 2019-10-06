@@ -2951,6 +2951,18 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 1579059653}
   m_PrefabAsset: {fileID: 0}
+--- !u!82 &270610187 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 2474022293446262892, guid: 7eba0bf4669c205489c0f9e63c12cd9f,
+    type: 3}
+  m_PrefabInstance: {fileID: 1579059653}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &372235437 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 3308096265458712456, guid: 7eba0bf4669c205489c0f9e63c12cd9f,
+    type: 3}
+  m_PrefabInstance: {fileID: 1579059653}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &416828885
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -3415,6 +3427,21 @@ PrefabInstance:
       propertyPath: knifeRadius
       value: 0.2
       objectReference: {fileID: 0}
+    - target: {fileID: 8662968551763908598, guid: 04f0ceadb2acfa04db32938e4853f9e6,
+        type: 3}
+      propertyPath: knifeSwing
+      value: 
+      objectReference: {fileID: 372235437}
+    - target: {fileID: 8662968551763908598, guid: 04f0ceadb2acfa04db32938e4853f9e6,
+        type: 3}
+      propertyPath: gunEmpty
+      value: 
+      objectReference: {fileID: 270610187}
+    - target: {fileID: 8662968551763908598, guid: 04f0ceadb2acfa04db32938e4853f9e6,
+        type: 3}
+      propertyPath: gunShot
+      value: 
+      objectReference: {fileID: 977277964}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 04f0ceadb2acfa04db32938e4853f9e6, type: 3}
 --- !u!4 &567993471 stripped
@@ -3803,6 +3830,12 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2579995664210494937, guid: 0d44623a59c9ad1468e5e19be1c885b2,
     type: 3}
   m_PrefabInstance: {fileID: 1759129243}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &977277964 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 1641169867294210370, guid: 7eba0bf4669c205489c0f9e63c12cd9f,
+    type: 3}
+  m_PrefabInstance: {fileID: 1579059653}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &979589430
 GameObject:

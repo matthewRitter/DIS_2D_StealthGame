@@ -383,6 +383,8 @@ MonoBehaviour:
   gunShot: {fileID: 3304259529516011083, guid: ba8ed596af2ce7d45aefbbdd7499aaf0, type: 3}
   gunEmpty: {fileID: 5468333980076368670, guid: 6e338293e35dc0941bd0fc810ad640c2,
     type: 3}
+  knifeSwing: {fileID: 331332785917939359, guid: b9a92ced7f943864a996098e91b3971e,
+    type: 3}
 --- !u!50 &6201378804741689348
 Rigidbody2D:
   serializedVersion: 4

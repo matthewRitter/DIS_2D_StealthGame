@@ -373,6 +373,21 @@ PrefabInstance:
       propertyPath: knifeRadius
       value: 0.4
       objectReference: {fileID: 0}
+    - target: {fileID: 8662968551763908598, guid: 04f0ceadb2acfa04db32938e4853f9e6,
+        type: 3}
+      propertyPath: gunEmpty
+      value: 
+      objectReference: {fileID: 713201466}
+    - target: {fileID: 8662968551763908598, guid: 04f0ceadb2acfa04db32938e4853f9e6,
+        type: 3}
+      propertyPath: gunShot
+      value: 
+      objectReference: {fileID: 713201465}
+    - target: {fileID: 8662968551763908598, guid: 04f0ceadb2acfa04db32938e4853f9e6,
+        type: 3}
+      propertyPath: knifeSwing
+      value: 
+      objectReference: {fileID: 713201464}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 04f0ceadb2acfa04db32938e4853f9e6, type: 3}
 --- !u!1 &363957307 stripped
@@ -758,11 +773,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 225
       objectReference: {fileID: 0}
-    - target: {fileID: 808491721111749085, guid: 7479e560032214b47937372be08d1ce2,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 808491721111749086, guid: 7479e560032214b47937372be08d1ce2,
         type: 3}
       propertyPath: rayCount
@@ -777,6 +787,11 @@ PrefabInstance:
         type: 3}
       propertyPath: alpha
       value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 808491721111749085, guid: 7479e560032214b47937372be08d1ce2,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7479e560032214b47937372be08d1ce2, type: 3}
@@ -1044,6 +1059,24 @@ GameObject:
 --- !u!1 &713201463 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3596247766406876176, guid: 7eba0bf4669c205489c0f9e63c12cd9f,
+    type: 3}
+  m_PrefabInstance: {fileID: 713201460}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &713201464 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 3308096265458712456, guid: 7eba0bf4669c205489c0f9e63c12cd9f,
+    type: 3}
+  m_PrefabInstance: {fileID: 713201460}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &713201465 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 1641169867294210370, guid: 7eba0bf4669c205489c0f9e63c12cd9f,
+    type: 3}
+  m_PrefabInstance: {fileID: 713201460}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &713201466 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 2474022293446262892, guid: 7eba0bf4669c205489c0f9e63c12cd9f,
     type: 3}
   m_PrefabInstance: {fileID: 713201460}
   m_PrefabAsset: {fileID: 0}
@@ -7916,11 +7949,6 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 5955539211737578694, guid: bfa566578cb1e7a4f894b2f2b05ecc60,
         type: 3}
-    - target: {fileID: 7779449245347438253, guid: e6ef0ee18b0f4124cb091ddb7beadd7d,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: -7603212474241353074, guid: e6ef0ee18b0f4124cb091ddb7beadd7d,
         type: 3}
       propertyPath: cameraObj
@@ -7940,6 +7968,11 @@ PrefabInstance:
         type: 3}
       propertyPath: patrolSpeed
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7779449245347438253, guid: e6ef0ee18b0f4124cb091ddb7beadd7d,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7779449245347438253, guid: e6ef0ee18b0f4124cb091ddb7beadd7d, type: 3}
@@ -11411,11 +11444,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: -45
       objectReference: {fileID: 0}
-    - target: {fileID: 808491721111749085, guid: 7479e560032214b47937372be08d1ce2,
-        type: 3}
-      propertyPath: m_SortingOrder
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 808491721111749086, guid: 7479e560032214b47937372be08d1ce2,
         type: 3}
       propertyPath: rayCount
@@ -11430,6 +11458,11 @@ PrefabInstance:
         type: 3}
       propertyPath: alpha
       value: 0.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 808491721111749085, guid: 7479e560032214b47937372be08d1ce2,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7479e560032214b47937372be08d1ce2, type: 3}

@@ -278,7 +278,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerSpeed: 10
   player: {fileID: 8662968551763908593}
-  sound: {fileID: 0}
   animator: {fileID: 291023940}
   knife: {fileID: 5391814177504422741}
   gun: {fileID: 1339088733591707704, guid: a188929067cc64245a8459396afd40d9, type: 3}
@@ -287,6 +286,9 @@ MonoBehaviour:
   gunItem: {fileID: 0}
   knifeActive: 1
   gunActive: 0
+  gunShot: {fileID: 0}
+  gunEmpty: {fileID: 0}
+  knifeSwing: {fileID: 0}
 --- !u!50 &8662968551763908592
 Rigidbody2D:
   serializedVersion: 4
@@ -358,12 +360,12 @@ PrefabInstance:
     - target: {fileID: 1339088733591707711, guid: a188929067cc64245a8459396afd40d9,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 4.892438
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1339088733591707711, guid: a188929067cc64245a8459396afd40d9,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.0225503
+      value: 0.4
       objectReference: {fileID: 0}
     - target: {fileID: 1339088733591707711, guid: a188929067cc64245a8459396afd40d9,
         type: 3}

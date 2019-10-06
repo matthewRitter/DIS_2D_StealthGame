@@ -283,13 +283,16 @@ MonoBehaviour:
   patrolSpeed: 1
   shootCD: 1.5
   lookAroundTime: 0
-  audioStealth: {fileID: 0}
-  audioFoundOne: {fileID: 0}
+  audioStealth: {fileID: 3007268756531358227, guid: eac6b11f2a0eec244b880bee605e5fbb,
+    type: 3}
+  audioFoundOne: {fileID: 3510990133429120048, guid: c5691444674a8844c9cd35903d810e1a,
+    type: 3}
   audioFoundTwo: {fileID: 0}
   fadeTime: 4
   gun: {fileID: 8391703664944893467}
   gunDropItem: {fileID: 5642033467102276403, guid: 2c90cd0ec24d5e6408bc00e77cda3c94,
     type: 3}
+  constantShoot: 0
 --- !u!1001 &7412982291868446243
 PrefabInstance:
   m_ObjectHideFlags: 0

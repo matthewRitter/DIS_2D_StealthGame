@@ -33,6 +33,7 @@ Transform:
   - {fileID: 3741671794883689982}
   - {fileID: 5310916807029211381}
   - {fileID: 8183080903523874466}
+  - {fileID: 4397610150134888863}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -451,6 +452,91 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 8262319121199659004, guid: ba8ed596af2ce7d45aefbbdd7499aaf0,
     type: 3}
   m_PrefabInstance: {fileID: 4259716702002296585}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1001 &5094726353964654583
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 2214994672973037831}
+    m_Modifications:
+    - target: {fileID: 8913584094304233070, guid: d494a4701d51d994ab068934f358b5cc,
+        type: 3}
+      propertyPath: m_Name
+      value: PianoSounds
+      objectReference: {fileID: 0}
+    - target: {fileID: 8913584094304233064, guid: d494a4701d51d994ab068934f358b5cc,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 7.264483
+      objectReference: {fileID: 0}
+    - target: {fileID: 8913584094304233064, guid: d494a4701d51d994ab068934f358b5cc,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -0.9164974
+      objectReference: {fileID: 0}
+    - target: {fileID: 8913584094304233064, guid: d494a4701d51d994ab068934f358b5cc,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -23.537006
+      objectReference: {fileID: 0}
+    - target: {fileID: 8913584094304233064, guid: d494a4701d51d994ab068934f358b5cc,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8913584094304233064, guid: d494a4701d51d994ab068934f358b5cc,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8913584094304233064, guid: d494a4701d51d994ab068934f358b5cc,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8913584094304233064, guid: d494a4701d51d994ab068934f358b5cc,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8913584094304233064, guid: d494a4701d51d994ab068934f358b5cc,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8913584094304233064, guid: d494a4701d51d994ab068934f358b5cc,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8913584094304233064, guid: d494a4701d51d994ab068934f358b5cc,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8913584094304233064, guid: d494a4701d51d994ab068934f358b5cc,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8913584094304233065, guid: d494a4701d51d994ab068934f358b5cc,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8913584094304233065, guid: d494a4701d51d994ab068934f358b5cc,
+        type: 3}
+      propertyPath: Loop
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: d494a4701d51d994ab068934f358b5cc, type: 3}
+--- !u!4 &4397610150134888863 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 8913584094304233064, guid: d494a4701d51d994ab068934f358b5cc,
+    type: 3}
+  m_PrefabInstance: {fileID: 5094726353964654583}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7617296584650613618
 PrefabInstance:

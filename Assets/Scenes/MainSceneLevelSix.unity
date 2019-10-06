@@ -491,6 +491,21 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6201378804741689346, guid: 69e3c95c89d36874095466ac53199b9e,
+        type: 3}
+      propertyPath: knifeSwing
+      value: 
+      objectReference: {fileID: 671726414}
+    - target: {fileID: 6201378804741689346, guid: 69e3c95c89d36874095466ac53199b9e,
+        type: 3}
+      propertyPath: gunEmpty
+      value: 
+      objectReference: {fileID: 274046935}
+    - target: {fileID: 6201378804741689346, guid: 69e3c95c89d36874095466ac53199b9e,
+        type: 3}
+      propertyPath: gunShot
+      value: 
+      objectReference: {fileID: 1424978290}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 69e3c95c89d36874095466ac53199b9e, type: 3}
 --- !u!1001 &229197984
@@ -565,6 +580,12 @@ PrefabInstance:
 --- !u!1 &237685322 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3865397458370914654, guid: 7eba0bf4669c205489c0f9e63c12cd9f,
+    type: 3}
+  m_PrefabInstance: {fileID: 1027683229}
+  m_PrefabAsset: {fileID: 0}
+--- !u!82 &274046935 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 2474022293446262892, guid: 7eba0bf4669c205489c0f9e63c12cd9f,
     type: 3}
   m_PrefabInstance: {fileID: 1027683229}
   m_PrefabAsset: {fileID: 0}
@@ -934,6 +955,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 68a60dd12f450174bb6a27392a33c94f, type: 3}
+--- !u!82 &671726414 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 3308096265458712456, guid: 7eba0bf4669c205489c0f9e63c12cd9f,
+    type: 3}
+  m_PrefabInstance: {fileID: 1027683229}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &883121728 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7779449245347438240, guid: e6ef0ee18b0f4124cb091ddb7beadd7d,
@@ -2453,6 +2480,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 67d196f724b08f34eb409139aa5653f7, type: 3}
+--- !u!82 &1424978290 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 1641169867294210370, guid: 7eba0bf4669c205489c0f9e63c12cd9f,
+    type: 3}
+  m_PrefabInstance: {fileID: 1027683229}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1491170646
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2720,16 +2753,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 295709816830254330, guid: e6ef0ee18b0f4124cb091ddb7beadd7d,
+    - target: {fileID: -971309276157280399, guid: e6ef0ee18b0f4124cb091ddb7beadd7d,
         type: 3}
-      propertyPath: player
+      propertyPath: bloodPrefab
       value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 295709816830254330, guid: e6ef0ee18b0f4124cb091ddb7beadd7d,
+      objectReference: {fileID: 5955539211737578694, guid: bfa566578cb1e7a4f894b2f2b05ecc60,
         type: 3}
-      propertyPath: AlertRadius
-      value: 15
-      objectReference: {fileID: 0}
     - target: {fileID: -7603212474241353074, guid: e6ef0ee18b0f4124cb091ddb7beadd7d,
         type: 3}
       propertyPath: cameraObj
@@ -2740,12 +2769,16 @@ PrefabInstance:
       propertyPath: rayCount
       value: 150
       objectReference: {fileID: 0}
-    - target: {fileID: -971309276157280399, guid: e6ef0ee18b0f4124cb091ddb7beadd7d,
+    - target: {fileID: 295709816830254330, guid: e6ef0ee18b0f4124cb091ddb7beadd7d,
         type: 3}
-      propertyPath: bloodPrefab
+      propertyPath: player
       value: 
-      objectReference: {fileID: 5955539211737578694, guid: bfa566578cb1e7a4f894b2f2b05ecc60,
+      objectReference: {fileID: 0}
+    - target: {fileID: 295709816830254330, guid: e6ef0ee18b0f4124cb091ddb7beadd7d,
         type: 3}
+      propertyPath: AlertRadius
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 292795868864384193, guid: e6ef0ee18b0f4124cb091ddb7beadd7d,
         type: 3}
       propertyPath: clockwise
@@ -5674,16 +5707,12 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 295709816830254330, guid: e6ef0ee18b0f4124cb091ddb7beadd7d,
+    - target: {fileID: -971309276157280399, guid: e6ef0ee18b0f4124cb091ddb7beadd7d,
         type: 3}
-      propertyPath: player
+      propertyPath: bloodPrefab
       value: 
-      objectReference: {fileID: 0}
-    - target: {fileID: 295709816830254330, guid: e6ef0ee18b0f4124cb091ddb7beadd7d,
+      objectReference: {fileID: 5955539211737578694, guid: bfa566578cb1e7a4f894b2f2b05ecc60,
         type: 3}
-      propertyPath: AlertRadius
-      value: 35
-      objectReference: {fileID: 0}
     - target: {fileID: -7603212474241353074, guid: e6ef0ee18b0f4124cb091ddb7beadd7d,
         type: 3}
       propertyPath: cameraObj
@@ -5694,12 +5723,16 @@ PrefabInstance:
       propertyPath: rayCount
       value: 150
       objectReference: {fileID: 0}
-    - target: {fileID: -971309276157280399, guid: e6ef0ee18b0f4124cb091ddb7beadd7d,
+    - target: {fileID: 295709816830254330, guid: e6ef0ee18b0f4124cb091ddb7beadd7d,
         type: 3}
-      propertyPath: bloodPrefab
+      propertyPath: player
       value: 
-      objectReference: {fileID: 5955539211737578694, guid: bfa566578cb1e7a4f894b2f2b05ecc60,
+      objectReference: {fileID: 157533544}
+    - target: {fileID: 295709816830254330, guid: e6ef0ee18b0f4124cb091ddb7beadd7d,
         type: 3}
+      propertyPath: AlertRadius
+      value: 35
+      objectReference: {fileID: 0}
     - target: {fileID: 292795868864384193, guid: e6ef0ee18b0f4124cb091ddb7beadd7d,
         type: 3}
       propertyPath: clockwise
