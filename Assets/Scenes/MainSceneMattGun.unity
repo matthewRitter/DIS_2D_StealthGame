@@ -222,12 +222,12 @@ PrefabInstance:
     - target: {fileID: 6201378804741689344, guid: 69e3c95c89d36874095466ac53199b9e,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.02
       objectReference: {fileID: 0}
     - target: {fileID: 6201378804741689344, guid: 69e3c95c89d36874095466ac53199b9e,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: -0.62
       objectReference: {fileID: 0}
     - target: {fileID: 6201378804741689344, guid: 69e3c95c89d36874095466ac53199b9e,
         type: 3}
@@ -1807,6 +1807,16 @@ PrefabInstance:
       propertyPath: cameraObj
       value: 
       objectReference: {fileID: 704820090}
+    - target: {fileID: 8884211307135827157, guid: 5efce0826d0804545b861b1349937a7c,
+        type: 3}
+      propertyPath: rayCount
+      value: 200
+      objectReference: {fileID: 0}
+    - target: {fileID: 8884211307135827157, guid: 5efce0826d0804545b861b1349937a7c,
+        type: 3}
+      propertyPath: alpha
+      value: 0.01
+      objectReference: {fileID: 0}
     - target: {fileID: 7412982291978549896, guid: 5efce0826d0804545b861b1349937a7c,
         type: 3}
       propertyPath: waypoints.Array.size
