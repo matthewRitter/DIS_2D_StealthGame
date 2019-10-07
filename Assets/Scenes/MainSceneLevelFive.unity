@@ -98065,21 +98065,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3330045603313002066, guid: 69e3c95c89d36874095466ac53199b9e,
-        type: 3}
-      propertyPath: gunEmpty
-      value: 
-      objectReference: {fileID: 27404549}
-    - target: {fileID: 3330045603313002066, guid: 69e3c95c89d36874095466ac53199b9e,
-        type: 3}
-      propertyPath: gunShot
-      value: 
-      objectReference: {fileID: 2033227039}
-    - target: {fileID: 3330045603313002066, guid: 69e3c95c89d36874095466ac53199b9e,
-        type: 3}
-      propertyPath: player
-      value: 
-      objectReference: {fileID: 846314447}
     - target: {fileID: 6201378804741689346, guid: 69e3c95c89d36874095466ac53199b9e,
         type: 3}
       propertyPath: gunShot
@@ -98100,6 +98085,21 @@ PrefabInstance:
       propertyPath: knifeSwing
       value: 
       objectReference: {fileID: 3596247765905804655}
+    - target: {fileID: 3330045603313002066, guid: 69e3c95c89d36874095466ac53199b9e,
+        type: 3}
+      propertyPath: gunEmpty
+      value: 
+      objectReference: {fileID: 27404549}
+    - target: {fileID: 3330045603313002066, guid: 69e3c95c89d36874095466ac53199b9e,
+        type: 3}
+      propertyPath: gunShot
+      value: 
+      objectReference: {fileID: 2033227039}
+    - target: {fileID: 3330045603313002066, guid: 69e3c95c89d36874095466ac53199b9e,
+        type: 3}
+      propertyPath: player
+      value: 
+      objectReference: {fileID: 846314447}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 69e3c95c89d36874095466ac53199b9e, type: 3}
 --- !u!4 &773385387 stripped
@@ -124444,6 +124444,11 @@ PrefabInstance:
       propertyPath: FollowSpeed
       value: 30
       objectReference: {fileID: 0}
+    - target: {fileID: 3674618191639244764, guid: f6a09af50c4838f45944879e6275ae7f,
+        type: 3}
+      propertyPath: orthographic size
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6a09af50c4838f45944879e6275ae7f, type: 3}
 --- !u!4 &1683255597 stripped
@@ -125830,16 +125835,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sounds
       objectReference: {fileID: 0}
-    - target: {fileID: 2474022293446262892, guid: 7eba0bf4669c205489c0f9e63c12cd9f,
-        type: 3}
-      propertyPath: m_PlayOnAwake
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1641169867294210370, guid: 7eba0bf4669c205489c0f9e63c12cd9f,
-        type: 3}
-      propertyPath: m_PlayOnAwake
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2214994672973037831, guid: 7eba0bf4669c205489c0f9e63c12cd9f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -125895,6 +125890,26 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3308096265458712456, guid: 7eba0bf4669c205489c0f9e63c12cd9f,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3308096265458712456, guid: 7eba0bf4669c205489c0f9e63c12cd9f,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1641169867294210370, guid: 7eba0bf4669c205489c0f9e63c12cd9f,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2474022293446262892, guid: 7eba0bf4669c205489c0f9e63c12cd9f,
+        type: 3}
+      propertyPath: m_PlayOnAwake
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 727878208327269137, guid: 7eba0bf4669c205489c0f9e63c12cd9f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -125910,16 +125925,6 @@ PrefabInstance:
       propertyPath: m_LocalPosition.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5994955641852681985, guid: 7eba0bf4669c205489c0f9e63c12cd9f,
-        type: 3}
-      propertyPath: m_Volume
-      value: 0.25
-      objectReference: {fileID: 0}
-    - target: {fileID: 5981857098256325769, guid: 7eba0bf4669c205489c0f9e63c12cd9f,
-        type: 3}
-      propertyPath: m_Volume
-      value: 0.25
-      objectReference: {fileID: 0}
     - target: {fileID: 3538130919825041563, guid: 7eba0bf4669c205489c0f9e63c12cd9f,
         type: 3}
       propertyPath: m_IsActive
@@ -125930,15 +125935,15 @@ PrefabInstance:
       propertyPath: m_Name
       value: knifeSwing
       objectReference: {fileID: 0}
-    - target: {fileID: 3308096265458712456, guid: 7eba0bf4669c205489c0f9e63c12cd9f,
-        type: 3}
-      propertyPath: m_PlayOnAwake
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3308096265458712456, guid: 7eba0bf4669c205489c0f9e63c12cd9f,
+    - target: {fileID: 5994955641852681985, guid: 7eba0bf4669c205489c0f9e63c12cd9f,
         type: 3}
       propertyPath: m_Volume
-      value: 0.1
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 5981857098256325769, guid: 7eba0bf4669c205489c0f9e63c12cd9f,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.25
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7eba0bf4669c205489c0f9e63c12cd9f, type: 3}

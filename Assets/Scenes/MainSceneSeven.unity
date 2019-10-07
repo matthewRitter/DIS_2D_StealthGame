@@ -718,6 +718,11 @@ PrefabInstance:
       propertyPath: FollowSpeed
       value: 30
       objectReference: {fileID: 0}
+    - target: {fileID: 3674618191639244764, guid: f6a09af50c4838f45944879e6275ae7f,
+        type: 3}
+      propertyPath: orthographic size
+      value: 7
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f6a09af50c4838f45944879e6275ae7f, type: 3}
 --- !u!1001 &349020202
@@ -1234,11 +1239,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 3330045603313002066, guid: 69e3c95c89d36874095466ac53199b9e,
-        type: 3}
-      propertyPath: bulletCount
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6201378804741689346, guid: 69e3c95c89d36874095466ac53199b9e,
         type: 3}
       propertyPath: knifeSwing
@@ -1254,6 +1254,11 @@ PrefabInstance:
       propertyPath: gunEmpty
       value: 
       objectReference: {fileID: 1302344950}
+    - target: {fileID: 3330045603313002066, guid: 69e3c95c89d36874095466ac53199b9e,
+        type: 3}
+      propertyPath: bulletCount
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 69e3c95c89d36874095466ac53199b9e, type: 3}
 --- !u!1 &408124720 stripped
@@ -25347,6 +25352,11 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 1484754723}
+    - target: {fileID: 3706966108709447816, guid: fc790d681ef9de645945f4090f11665d,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 2000
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: fc790d681ef9de645945f4090f11665d, type: 3}
 --- !u!1001 &1340629333
